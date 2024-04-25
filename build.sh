@@ -1,4 +1,4 @@
-BINARY_NAME="arcade"
+BINARY_NAME="raytracer"
 
 if [ "$1" = "--help" ] ||  [ "$1" = "-h" ]; then
   echo "Usage: ./build.sh [debug|ninja] [re]"
