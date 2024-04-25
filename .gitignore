@@ -1,6 +1,7 @@
 ### C++ template
 # Prerequisites
 *.d
+*.ppm
 raytracer
 build/
 # Compiled Object files
