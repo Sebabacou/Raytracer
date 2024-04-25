@@ -16,5 +16,5 @@ add_executable(raytracer
 
 # Copy the executable to the root directory
 add_custom_command(TARGET arcade POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy
-        $<TARGET_FILE:arcade>
-        ${PROJECT_SOURCE_DIR}/$<TARGET_FILE_NAME:arcade>)
+        $<TARGET_FILE:raytracer>
+        ${PROJECT_SOURCE_DIR}/$<TARGET_FILE_NAME:raytracer>)
