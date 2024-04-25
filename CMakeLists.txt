@@ -1,20 +1,30 @@
-cmake_minimum_required(VERSION 3.0)
-project(raytracer)
+cmake_minimum_required(VERSION 3.10)
 
-# Set settings for the C++ compiler
-set(CMAKE_CXX_STANDARD 20)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
-SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Werror -g")
+project(beton)
 
-# Add the include directory to the include path
-include_directories(src/)
+# find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 
-# Add the source files to the executable for this CMakeLists.txt
-add_executable(raytracer
-        src/main.cpp
-        )
+include_directories(
+    # ${SFML_INCLUDE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rtx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/raytracer
+)
 
-# Copy the executable to the root directory
-add_custom_command(TARGET raytracer POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy
-        $<TARGET_FILE:raytracer>
-        ${PROJECT_SOURCE_DIR}/$<TARGET_FILE_NAME:raytracer>)
+set(SOURCES
+    src/rtx/vec3/vec3.cpp
+    src/rtx/ray/ray.cpp
+    src/raytracer/main.cpp
+    src/raytracer/objects/sphere.cpp
+    src/raytracer/camera.cpp
+    src/raytracer/world.cpp
+    src/rtx/color/color.cpp
+    src/rtx/color/screen.cpp
+)
+
+set(CMAKE_BINARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-audio)
