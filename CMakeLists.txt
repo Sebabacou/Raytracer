@@ -10,12 +10,9 @@ SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Werror -g")
 include_directories(src/)
 
 # Add the source files to the executable for this CMakeLists.txt
-add_executable(arcade
+add_executable(raytracer
         src/main.cpp
         )
-
-# Link the executable to the libraries
-TARGET_LINK_LIBRARIES(arcade dl)
 
 # Copy the executable to the root directory
 add_custom_command(TARGET arcade POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy
