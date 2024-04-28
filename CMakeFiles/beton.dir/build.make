@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/diabolo/delivery/raytracing
+CMAKE_SOURCE_DIR = /home/diabolo/delivery/Raytracer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/diabolo/delivery/raytracing
+CMAKE_BINARY_DIR = /home/diabolo/delivery/Raytracer
 
 # Include any dependencies generated for this target.
 include CMakeFiles/beton.dir/depend.make
@@ -72,114 +72,114 @@ include CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o: src/rtx/vec3/vec3.cpp
 CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o -MF CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o -c /home/diabolo/delivery/raytracing/src/rtx/vec3/vec3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o -MF CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o -c /home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.cpp
 
 CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/rtx/vec3/vec3.cpp > CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.cpp > CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.i
 
 CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/rtx/vec3/vec3.cpp -o CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.cpp -o CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.s
 
 CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o: src/rtx/ray/ray.cpp
 CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o -MF CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o -c /home/diabolo/delivery/raytracing/src/rtx/ray/ray.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o -MF CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o -c /home/diabolo/delivery/Raytracer/src/rtx/ray/ray.cpp
 
 CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/rtx/ray/ray.cpp > CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/rtx/ray/ray.cpp > CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.i
 
 CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/rtx/ray/ray.cpp -o CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/rtx/ray/ray.cpp -o CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.s
 
 CMakeFiles/beton.dir/src/raytracer/main.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/raytracer/main.cpp.o: src/raytracer/main.cpp
 CMakeFiles/beton.dir/src/raytracer/main.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/beton.dir/src/raytracer/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/main.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/main.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/main.cpp.o -c /home/diabolo/delivery/raytracing/src/raytracer/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/beton.dir/src/raytracer/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/main.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/main.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/main.cpp.o -c /home/diabolo/delivery/Raytracer/src/raytracer/main.cpp
 
 CMakeFiles/beton.dir/src/raytracer/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/raytracer/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/raytracer/main.cpp > CMakeFiles/beton.dir/src/raytracer/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/raytracer/main.cpp > CMakeFiles/beton.dir/src/raytracer/main.cpp.i
 
 CMakeFiles/beton.dir/src/raytracer/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/raytracer/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/raytracer/main.cpp -o CMakeFiles/beton.dir/src/raytracer/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/raytracer/main.cpp -o CMakeFiles/beton.dir/src/raytracer/main.cpp.s
 
 CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o: src/raytracer/objects/sphere.cpp
 CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o -c /home/diabolo/delivery/raytracing/src/raytracer/objects/sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o -c /home/diabolo/delivery/Raytracer/src/raytracer/objects/sphere.cpp
 
 CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/raytracer/objects/sphere.cpp > CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/raytracer/objects/sphere.cpp > CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.i
 
 CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/raytracer/objects/sphere.cpp -o CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/raytracer/objects/sphere.cpp -o CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.s
 
 CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: src/raytracer/camera.cpp
 CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/beton.dir/src/raytracer/camera.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/camera.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/camera.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/camera.cpp.o -c /home/diabolo/delivery/raytracing/src/raytracer/camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/beton.dir/src/raytracer/camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/camera.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/camera.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/camera.cpp.o -c /home/diabolo/delivery/Raytracer/src/raytracer/camera.cpp
 
 CMakeFiles/beton.dir/src/raytracer/camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/raytracer/camera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/raytracer/camera.cpp > CMakeFiles/beton.dir/src/raytracer/camera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/raytracer/camera.cpp > CMakeFiles/beton.dir/src/raytracer/camera.cpp.i
 
 CMakeFiles/beton.dir/src/raytracer/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/raytracer/camera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/raytracer/camera.cpp -o CMakeFiles/beton.dir/src/raytracer/camera.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/raytracer/camera.cpp -o CMakeFiles/beton.dir/src/raytracer/camera.cpp.s
 
 CMakeFiles/beton.dir/src/raytracer/world.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/raytracer/world.cpp.o: src/raytracer/world.cpp
 CMakeFiles/beton.dir/src/raytracer/world.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/beton.dir/src/raytracer/world.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/world.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/world.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/world.cpp.o -c /home/diabolo/delivery/raytracing/src/raytracer/world.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/beton.dir/src/raytracer/world.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/raytracer/world.cpp.o -MF CMakeFiles/beton.dir/src/raytracer/world.cpp.o.d -o CMakeFiles/beton.dir/src/raytracer/world.cpp.o -c /home/diabolo/delivery/Raytracer/src/raytracer/world.cpp
 
 CMakeFiles/beton.dir/src/raytracer/world.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/raytracer/world.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/raytracer/world.cpp > CMakeFiles/beton.dir/src/raytracer/world.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/raytracer/world.cpp > CMakeFiles/beton.dir/src/raytracer/world.cpp.i
 
 CMakeFiles/beton.dir/src/raytracer/world.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/raytracer/world.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/raytracer/world.cpp -o CMakeFiles/beton.dir/src/raytracer/world.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/raytracer/world.cpp -o CMakeFiles/beton.dir/src/raytracer/world.cpp.s
 
 CMakeFiles/beton.dir/src/rtx/color/color.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/rtx/color/color.cpp.o: src/rtx/color/color.cpp
 CMakeFiles/beton.dir/src/rtx/color/color.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/beton.dir/src/rtx/color/color.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/color/color.cpp.o -MF CMakeFiles/beton.dir/src/rtx/color/color.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/color/color.cpp.o -c /home/diabolo/delivery/raytracing/src/rtx/color/color.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/beton.dir/src/rtx/color/color.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/color/color.cpp.o -MF CMakeFiles/beton.dir/src/rtx/color/color.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/color/color.cpp.o -c /home/diabolo/delivery/Raytracer/src/rtx/color/color.cpp
 
 CMakeFiles/beton.dir/src/rtx/color/color.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/rtx/color/color.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/rtx/color/color.cpp > CMakeFiles/beton.dir/src/rtx/color/color.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/rtx/color/color.cpp > CMakeFiles/beton.dir/src/rtx/color/color.cpp.i
 
 CMakeFiles/beton.dir/src/rtx/color/color.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/rtx/color/color.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/rtx/color/color.cpp -o CMakeFiles/beton.dir/src/rtx/color/color.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/rtx/color/color.cpp -o CMakeFiles/beton.dir/src/rtx/color/color.cpp.s
 
 CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o: CMakeFiles/beton.dir/flags.make
 CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o: src/rtx/color/screen.cpp
 CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o: CMakeFiles/beton.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o -MF CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o -c /home/diabolo/delivery/raytracing/src/rtx/color/screen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o -MF CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o.d -o CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o -c /home/diabolo/delivery/Raytracer/src/rtx/color/screen.cpp
 
 CMakeFiles/beton.dir/src/rtx/color/screen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/beton.dir/src/rtx/color/screen.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/raytracing/src/rtx/color/screen.cpp > CMakeFiles/beton.dir/src/rtx/color/screen.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/diabolo/delivery/Raytracer/src/rtx/color/screen.cpp > CMakeFiles/beton.dir/src/rtx/color/screen.cpp.i
 
 CMakeFiles/beton.dir/src/rtx/color/screen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/beton.dir/src/rtx/color/screen.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/raytracing/src/rtx/color/screen.cpp -o CMakeFiles/beton.dir/src/rtx/color/screen.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/diabolo/delivery/Raytracer/src/rtx/color/screen.cpp -o CMakeFiles/beton.dir/src/rtx/color/screen.cpp.s
 
 # Object files for target beton
 beton_OBJECTS = \
@@ -205,7 +205,7 @@ build/beton: CMakeFiles/beton.dir/src/rtx/color/color.cpp.o
 build/beton: CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o
 build/beton: CMakeFiles/beton.dir/build.make
 build/beton: CMakeFiles/beton.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diabolo/delivery/raytracing/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable build/beton"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/diabolo/delivery/Raytracer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable build/beton"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/beton.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -217,6 +217,6 @@ CMakeFiles/beton.dir/clean:
 .PHONY : CMakeFiles/beton.dir/clean
 
 CMakeFiles/beton.dir/depend:
-	cd /home/diabolo/delivery/raytracing && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diabolo/delivery/raytracing /home/diabolo/delivery/raytracing /home/diabolo/delivery/raytracing /home/diabolo/delivery/raytracing /home/diabolo/delivery/raytracing/CMakeFiles/beton.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/diabolo/delivery/Raytracer && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/diabolo/delivery/Raytracer /home/diabolo/delivery/Raytracer /home/diabolo/delivery/Raytracer /home/diabolo/delivery/Raytracer /home/diabolo/delivery/Raytracer/CMakeFiles/beton.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/beton.dir/depend
 

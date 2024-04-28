@@ -8,14 +8,14 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/diabolo/delivery/raytracing/src/raytracer/camera.cpp" "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o.d"
-  "/home/diabolo/delivery/raytracing/src/raytracer/main.cpp" "CMakeFiles/beton.dir/src/raytracer/main.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/main.cpp.o.d"
-  "/home/diabolo/delivery/raytracing/src/raytracer/objects/sphere.cpp" "CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o.d"
-  "/home/diabolo/delivery/raytracing/src/raytracer/world.cpp" "CMakeFiles/beton.dir/src/raytracer/world.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/world.cpp.o.d"
-  "/home/diabolo/delivery/raytracing/src/rtx/color/color.cpp" "CMakeFiles/beton.dir/src/rtx/color/color.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/color/color.cpp.o.d"
-  "/home/diabolo/delivery/raytracing/src/rtx/color/screen.cpp" "CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o.d"
-  "/home/diabolo/delivery/raytracing/src/rtx/ray/ray.cpp" "CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o.d"
-  "/home/diabolo/delivery/raytracing/src/rtx/vec3/vec3.cpp" "CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/raytracer/camera.cpp" "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/raytracer/main.cpp" "CMakeFiles/beton.dir/src/raytracer/main.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/main.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/raytracer/objects/sphere.cpp" "CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/raytracer/world.cpp" "CMakeFiles/beton.dir/src/raytracer/world.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/world.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/rtx/color/color.cpp" "CMakeFiles/beton.dir/src/rtx/color/color.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/color/color.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/rtx/color/screen.cpp" "CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/rtx/ray/ray.cpp" "CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.cpp" "CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o" "gcc" "CMakeFiles/beton.dir/src/rtx/vec3/vec3.cpp.o.d"
   )
 
 # Targets to which this target links.

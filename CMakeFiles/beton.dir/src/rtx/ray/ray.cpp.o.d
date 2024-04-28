@@ -1,8 +1,8 @@
 CMakeFiles/beton.dir/src/rtx/ray/ray.cpp.o: \
- /home/diabolo/delivery/raytracing/src/rtx/ray/ray.cpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/ray/ray.cpp \
  /usr/include/stdc-predef.h \
- /home/diabolo/delivery/raytracing/src/rtx/ray/ray.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/vec3/vec3.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/ray/ray.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.hpp \
  /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

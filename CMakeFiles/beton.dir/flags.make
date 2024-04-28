@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/diabolo/delivery/raytracing/include -I/home/diabolo/delivery/raytracing/src/rtx -I/home/diabolo/delivery/raytracing/src/raytracer
+CXX_INCLUDES = -I/home/diabolo/delivery/Raytracer/include -I/home/diabolo/delivery/Raytracer/src/rtx -I/home/diabolo/delivery/Raytracer/src/raytracer
 
 CXX_FLAGS = 
 

@@ -1,9 +1,9 @@
 CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o: \
- /home/diabolo/delivery/raytracing/src/rtx/color/screen.cpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/color/screen.cpp \
  /usr/include/stdc-predef.h \
- /home/diabolo/delivery/raytracing/src/rtx/color/screen.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/color/color.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/vec3/vec3.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/color/screen.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/color/color.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.hpp \
  /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -184,7 +184,7 @@ CMakeFiles/beton.dir/src/rtx/color/screen.cpp.o: \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/diabolo/delivery/raytracing/src/rtx/range.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/range.hpp \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \

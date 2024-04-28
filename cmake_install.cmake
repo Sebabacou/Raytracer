@@ -1,4 +1,4 @@
-# Install script for directory: /home/diabolo/delivery/raytracing
+# Install script for directory: /home/diabolo/delivery/Raytracer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/diabolo/delivery/raytracing/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/diabolo/delivery/Raytracer/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

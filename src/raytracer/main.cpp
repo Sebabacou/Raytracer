@@ -32,7 +32,7 @@ int main(int ac, char **av)
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(0, 0, -1.2), 0.5, mat_center));
     // world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(-1.0, 0, -1.0), 0.5, mat_left));
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(-1.0, 0, -1.0), 0.4, mat_bubble));
-    world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(1.0, 0, -1.0), 0.5, mat_right));
+    world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(1.0, 0, -1.0), 5, mat_right));
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(3.0, 0, -0.5), -0.45, mat_right));
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(0, 1, -1), 0.5, mat_center));
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(0, -100.5, -1), 100, mat_ground));
@@ -44,11 +44,11 @@ int main(int ac, char **av)
     // world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(0, -100.5, -1), 100));
     std::cout << world << std::endl;
     camera.setLookAt(rtx::point3(0, 0, -1));
-    camera.setPos(rtx::point3(1, 1, 0));
+    camera.setPos(rtx::point3(0, 0, 0));
     // camera.rotate(rtx::vec3(25, -25, 0));
     camera.setFov(90);
-    // camera.setAntialiasing(true);
-    // camera.setAntialiasingSamples(10);
+    camera.setAntialiasing(true);
+    camera.setAntialiasingSamples(10);
     // camera.rotate(rtx::vec3(0, 25, 0));
     // camera.rotate(rtx::vec3(0, 0, 0));
 

@@ -1,11 +1,11 @@
 CMakeFiles/beton.dir/src/raytracer/main.cpp.o: \
- /home/diabolo/delivery/raytracing/src/raytracer/main.cpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/main.cpp \
  /usr/include/stdc-predef.h \
- /home/diabolo/delivery/raytracing/include/raytracer.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/objects/sphere.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/objects/object.hpp \
- /home/diabolo/delivery/raytracing/include/rtx.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/vec3/vec3.hpp \
+ /home/diabolo/delivery/Raytracer/include/raytracer.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/objects/sphere.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/objects/object.hpp \
+ /home/diabolo/delivery/Raytracer/include/rtx.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.hpp \
  /usr/include/c++/11/cmath \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -186,14 +186,14 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: \
  /usr/include/c++/11/bits/stl_numeric.h /usr/include/c++/11/bit \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/diabolo/delivery/raytracing/src/rtx/ray/ray.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/color/screen.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/color/color.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/range.hpp \
- /home/diabolo/delivery/raytracing/src/rtx/loading.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/ray/ray.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/color/screen.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/color/color.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/range.hpp \
+ /home/diabolo/delivery/Raytracer/src/rtx/loading.hpp \
  /usr/include/c++/11/ctime \
- /home/diabolo/delivery/raytracing/src/raytracer/hitData.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/mats/mat.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/hitData.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/mats/mat.hpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h \
@@ -212,15 +212,15 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
- /home/diabolo/delivery/raytracing/src/raytracer/camera.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/world.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/camera.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/world.hpp \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/list.tcc \
- /home/diabolo/delivery/raytracing/src/raytracer/objects/object.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/mats/lambertian.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/mats/metal.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/mats/dielectric.hpp \
- /home/diabolo/delivery/raytracing/src/raytracer/lights/light.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/objects/object.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/mats/lambertian.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/mats/metal.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/mats/dielectric.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/light.hpp \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
