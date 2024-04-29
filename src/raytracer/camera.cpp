@@ -106,6 +106,8 @@ namespace raytracer {
         image.setSize(_width, _height);
         rtx::loading loading(_height);
 
+        int numThreads = std::thread::hardware_concurrency() - 2;
+
         for (int i = 0; i < _height; i++) {
             for (int j = 0; j < _width; j++)
                 image[i][j] = pixelAt(i, j, world);

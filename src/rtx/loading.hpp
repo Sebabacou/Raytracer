@@ -37,7 +37,7 @@ namespace rtx {
                 displayTime(now - _start);
                 if (current != 0) {
                     std::cout << " (aprox: ";
-                    displayTime((now - _start) / progress);
+                    displayTime((now - _start) * (_goal - current) / current);
                     std::cout << ")";
                 }
                 std::cout << std::flush;

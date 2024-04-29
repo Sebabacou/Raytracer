@@ -10,6 +10,7 @@
 
 #include <rtx.hpp>
 #include <world.hpp>
+#include <thread>
 
 namespace raytracer {
 
