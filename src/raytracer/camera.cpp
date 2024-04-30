@@ -101,30 +101,58 @@ namespace raytracer {
 
     }
 
+    void Camera::renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
+    {
+        for (int i = yRange._min; i < yRange._max; i++) {
+            for (int j = xRange._min; j < xRange._max; j++) {
+                image[i][j] = pixelAt(i, j, world);
+            }
+            std::lock_guard<std::mutex> lock(_mutex);
+            _progress += xRange._max - xRange._min;
+            int pourcent = (int)((float)_progress / (_width * _height) * 100);
+            std::cout << "\rRender: ";
+            if (pourcent < 10)
+                std::cout << " ";
+            if (pourcent < 100)
+                std::cout << " ";
+            std::cout << pourcent + 1 << "%" << std::flush;
+        }
+    }
+
     void Camera::render(World &world, rtx::screen &image)
     {
         image.setSize(_width, _height);
-        rtx::loading loading(_height);
 
+        time_t start = time(0);
         int numThreads = std::thread::hardware_concurrency() - 2;
-
-        for (int i = 0; i < _height; i++) {
-            for (int j = 0; j < _width; j++)
-                image[i][j] = pixelAt(i, j, world);
-            loading.displayLoading(i);
+        if (numThreads < 1)
+            numThreads = 1;
+        int root = (int)sqrt(numThreads);
+        root = 8;
+        int xRange = _width / root;
+        int yRange = _height / root;
+        std::vector<std::thread> threads;
+        for (int i = 0; i < root; i++) {
+            for (int j = 0; j < root; j++) {
+                rtx::range xR(j * xRange, (j + 1) * xRange);
+                rtx::range yR(i * yRange, (i + 1) * yRange);
+                threads.push_back(std::thread(&Camera::renderThread, this, std::ref(world), std::ref(image), xR, yR));
+            }
+        }
+        for (int i = 0; i < threads.size(); i++) {
+            threads[i].join();
         }
         std::cout << std::endl;
+        std::cout << "Render time: " << time(0) - start << "s" << std::endl;
     }
 
     void Camera::render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
     {
         image.setSize(_width, _height);
-        rtx::loading loading(yRange._max - yRange._min);
 
         for (int i = yRange._min; i < yRange._max; i++) {
             for (int j = xRange._min; j < xRange._max; j++)
                 image[i][j] = pixelAt(i, j, world);
-            loading.displayLoading(i - yRange._min);
         }
         std::cout << std::endl;
     }

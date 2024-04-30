@@ -188,8 +188,6 @@ CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: \
  /home/diabolo/delivery/Raytracer/src/rtx/color/screen.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/color/color.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/range.hpp \
- /home/diabolo/delivery/Raytracer/src/rtx/loading.hpp \
- /usr/include/c++/11/ctime \
  /home/diabolo/delivery/Raytracer/src/raytracer/world.hpp \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/allocated_ptr.h \
@@ -212,4 +210,10 @@ CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: \
  /usr/include/c++/11/bits/atomic_base.h \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h
+ /usr/include/c++/11/pstl/glue_memory_defs.h /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/ctime \
+ /usr/include/c++/11/bits/parse_numbers.h /usr/include/c++/11/mutex \
+ /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/atomic

@@ -20,6 +20,7 @@ set(SOURCES
     src/raytracer/world.cpp
     src/rtx/color/color.cpp
     src/rtx/color/screen.cpp
+    # src/raytracer/lights/directionalLight.cpp
 )
 
 set(CMAKE_BINARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)

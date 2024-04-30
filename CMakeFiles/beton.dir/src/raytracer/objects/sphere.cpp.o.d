@@ -189,8 +189,6 @@ CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o: \
  /home/diabolo/delivery/Raytracer/src/rtx/color/screen.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/color/color.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/range.hpp \
- /home/diabolo/delivery/Raytracer/src/rtx/loading.hpp \
- /usr/include/c++/11/ctime \
  /home/diabolo/delivery/Raytracer/src/raytracer/hitData.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/mat.hpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \

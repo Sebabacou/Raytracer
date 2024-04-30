@@ -15,6 +15,5 @@
 #include <vector>
 #include <color/screen.hpp>
 #include <range.hpp>
-#include <loading.hpp>
 
 #endif /* !RTX_HPP_ */

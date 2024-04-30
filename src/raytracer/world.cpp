@@ -24,7 +24,8 @@ namespace raytracer {
     }
 
     std::ostream &operator<<(std::ostream &os, World &w) {
-        os << "World(" << w.objects().size() << " objects)";
+        os << "World(" << w.objects().size() << " objects)" << std::endl;
+        os << "World(" << w.lights().size() << " lights)";
         return os;
     }
 }

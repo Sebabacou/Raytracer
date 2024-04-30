@@ -190,8 +190,6 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: \
  /home/diabolo/delivery/Raytracer/src/rtx/color/screen.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/color/color.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/range.hpp \
- /home/diabolo/delivery/Raytracer/src/rtx/loading.hpp \
- /usr/include/c++/11/ctime \
  /home/diabolo/delivery/Raytracer/src/raytracer/hitData.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/mat.hpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
@@ -217,14 +215,16 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/list.tcc \
  /home/diabolo/delivery/Raytracer/src/raytracer/objects/object.hpp \
+ /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
+ /usr/include/c++/11/ratio /usr/include/c++/11/ctime \
+ /usr/include/c++/11/bits/parse_numbers.h /usr/include/c++/11/mutex \
+ /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/atomic \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/lambertian.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/metal.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/dielectric.hpp \
- /home/diabolo/delivery/Raytracer/src/raytracer/lights/light.hpp \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/thread \
- /usr/include/c++/11/bits/std_thread.h \
- /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
- /usr/include/c++/11/ratio /usr/include/c++/11/bits/parse_numbers.h
+ /usr/include/c++/11/bits/fstream.tcc

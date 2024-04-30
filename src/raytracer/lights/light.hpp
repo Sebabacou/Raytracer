@@ -9,16 +9,20 @@
 #define LIGHT_HPP_
 
 #include <rtx.hpp>
-#include <world.hpp>
 #include <hitData.hpp>
+#include <world.hpp>
 
 namespace raytracer {
-    class Light {
+
+    class ILight {
         public:
-            Light() = default;
-            ~Light() = default;
+            ILight() = default;
+            ~ILight() = default;
 
             virtual bool directLight(World &world, HitData &data) = 0;
+        protected:
+        private:
+            rtx::vec3 _position;
     };
 }
 

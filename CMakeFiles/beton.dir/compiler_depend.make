@@ -228,8 +228,6 @@ CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: src/raytracer/camera.cpp \
   src/rtx/color/screen.hpp \
   src/rtx/color/color.hpp \
   src/rtx/range.hpp \
-  src/rtx/loading.hpp \
-  /usr/include/c++/11/ctime \
   src/raytracer/world.hpp \
   /usr/include/c++/11/list \
   /usr/include/c++/11/bits/stl_list.h \
@@ -258,7 +256,18 @@ CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: src/raytracer/camera.cpp \
   /usr/include/c++/11/bits/atomic_base.h \
   /usr/include/c++/11/bits/atomic_lockfree_defines.h \
   /usr/include/c++/11/backward/auto_ptr.h \
-  /usr/include/c++/11/pstl/glue_memory_defs.h
+  /usr/include/c++/11/pstl/glue_memory_defs.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/mutex \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/include/c++/11/atomic
 
 CMakeFiles/beton.dir/src/raytracer/main.cpp.o: src/raytracer/main.cpp \
   /usr/include/stdc-predef.h \
@@ -489,8 +498,6 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: src/raytracer/main.cpp \
   src/rtx/color/screen.hpp \
   src/rtx/color/color.hpp \
   src/rtx/range.hpp \
-  src/rtx/loading.hpp \
-  /usr/include/c++/11/ctime \
   src/raytracer/hitData.hpp \
   src/raytracer/mats/mat.hpp \
   /usr/include/c++/11/memory \
@@ -521,21 +528,25 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: src/raytracer/main.cpp \
   /usr/include/c++/11/bits/stl_list.h \
   /usr/include/c++/11/bits/list.tcc \
   src/raytracer/objects/object.hpp \
-  src/raytracer/mats/lambertian.hpp \
-  src/raytracer/mats/metal.hpp \
-  src/raytracer/mats/dielectric.hpp \
-  src/raytracer/lights/light.hpp \
-  /usr/include/c++/11/fstream \
-  /usr/include/c++/11/bits/codecvt.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/thread \
   /usr/include/c++/11/bits/std_thread.h \
   /usr/include/c++/11/bits/this_thread_sleep.h \
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/ratio \
-  /usr/include/c++/11/bits/parse_numbers.h
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/mutex \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/include/c++/11/atomic \
+  src/raytracer/mats/lambertian.hpp \
+  src/raytracer/mats/metal.hpp \
+  src/raytracer/mats/dielectric.hpp \
+  /usr/include/c++/11/fstream \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc
 
 CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o: src/raytracer/objects/sphere.cpp \
   /usr/include/stdc-predef.h \
@@ -765,8 +776,6 @@ CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o: src/raytracer/objects/s
   src/rtx/color/screen.hpp \
   src/rtx/color/color.hpp \
   src/rtx/range.hpp \
-  src/rtx/loading.hpp \
-  /usr/include/c++/11/ctime \
   src/raytracer/hitData.hpp \
   src/raytracer/mats/mat.hpp \
   /usr/include/c++/11/memory \
@@ -1025,8 +1034,6 @@ CMakeFiles/beton.dir/src/raytracer/world.cpp.o: src/raytracer/world.cpp \
   src/rtx/color/screen.hpp \
   src/rtx/color/color.hpp \
   src/rtx/range.hpp \
-  src/rtx/loading.hpp \
-  /usr/include/c++/11/ctime \
   src/raytracer/hitData.hpp \
   src/raytracer/mats/mat.hpp \
   /usr/include/c++/11/memory \
@@ -1960,12 +1967,6 @@ src/raytracer/world.cpp:
 
 src/raytracer/objects/sphere.cpp:
 
-/usr/include/c++/11/bits/parse_numbers.h:
-
-/usr/include/c++/11/ratio:
-
-/usr/include/c++/11/thread:
-
 /usr/include/c++/11/bits/fstream.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
@@ -1980,7 +1981,13 @@ src/raytracer/mats/metal.hpp:
 
 include/raytracer.hpp:
 
-/usr/include/c++/11/pstl/glue_memory_defs.h:
+/usr/include/c++/11/atomic:
+
+/usr/include/c++/11/mutex:
+
+/usr/include/c++/11/bits/parse_numbers.h:
+
+/usr/include/c++/11/ctime:
 
 /usr/include/c++/11/bits/char_traits.h:
 
@@ -2041,6 +2048,8 @@ src/rtx/color/screen.hpp:
 /usr/include/c++/11/tr1/exp_integral.tcc:
 
 /usr/include/c++/11/tr1/ell_integral.tcc:
+
+/usr/include/c++/11/bits/std_mutex.h:
 
 /usr/include/c++/11/tr1/poly_laguerre.tcc:
 
@@ -2146,6 +2155,8 @@ src/raytracer/camera.cpp:
 
 /usr/include/c++/11/ext/type_traits.h:
 
+/usr/include/c++/11/pstl/glue_memory_defs.h:
+
 /usr/include/c++/11/bits/exception_defines.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
@@ -2198,8 +2209,6 @@ src/raytracer/camera.hpp:
 
 /usr/include/c++/11/ext/numeric_traits.h:
 
-src/rtx/loading.hpp:
-
 /usr/include/c++/11/bits/atomic_base.h:
 
 /usr/include/features.h:
@@ -2238,8 +2247,6 @@ src/rtx/range.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
-/usr/include/c++/11/ctime:
-
 /usr/include/math.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
@@ -2271,8 +2278,6 @@ src/rtx/range.hpp:
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/c++/11/bits/locale_classes.tcc:
-
-src/raytracer/lights/light.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
 
@@ -2398,6 +2403,10 @@ src/raytracer/objects/sphere.hpp:
 
 /usr/include/stdio.h:
 
+/usr/include/c++/11/ratio:
+
+/usr/include/c++/11/thread:
+
 /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/11/cerrno:
@@ -2501,6 +2510,8 @@ src/raytracer/mats/mat.hpp:
 /usr/include/c++/11/memory:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/11/bits/unique_lock.h:
 
 /usr/include/c++/11/bits/uses_allocator.h:
 

@@ -48,12 +48,12 @@ int main(int ac, char **av)
     // camera.rotate(rtx::vec3(25, -25, 0));
     camera.setFov(90);
     camera.setAntialiasing(true);
-    camera.setAntialiasingSamples(10);
+    camera.setAntialiasingSamples(50);
     // camera.rotate(rtx::vec3(0, 25, 0));
     // camera.rotate(rtx::vec3(0, 0, 0));
 
     rtx::screen image;
     camera.render(world, image);
-    // camera.render(world, image, rtx::range(0, 800), rtx::range(200,250));
+    //camera.render(world, image, rtx::range(0, 800), rtx::range(0,400));
     image.screenToPPM(std::string("image.ppm"));
 }
