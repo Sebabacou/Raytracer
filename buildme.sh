@@ -48,4 +48,12 @@ if [ "$1" = "clean" ] || [ "$1" = "c" ]; then
   exit 0
 fi
 
+if [ "$1" = "nuke" || [ "$1" = "n" ]; then
+  rm -rf build
+  rm $BINARY_NAME
+  find . -name "*.so" -type f -delete
+  find . -name "*.a" -type f -delete
+  exit 0
+fi
+
 mkdir -p build && cd build && cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release && cmake --build . && cd ..
