@@ -31,21 +31,17 @@ public:
     }
 
     template<typename T>
-    T getFunction(const std::string &entryPoint) {
-        void *(*instance)() = (void *(*)())dlsym(_handle, entryPoint.c_str());
-        if (!instance) {
+
+     T getInstance(const std::string &name) {
+        T create = (T)dlsym(_handle, name.c_str());
+        if (!create) {
             throw std::runtime_error("Cannot load symbol: " + std::string(dlerror()));
         }
-        return static_cast<T>(instance);
+        return create;
     }
 
-    template<typename T>
-    void destroyInstance(T instance) {
-        delete instance;
-    }
-
-private:
-    void *_handle;
+    private:
+        void *_handle;
 };
 
 

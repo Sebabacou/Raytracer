@@ -5,10 +5,11 @@
 ** main.cpp
 */
 
-#include <iostream>
+#include "Software.hpp"
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    Software software;
+    software.loadAllLibs();
     return 0;
 }

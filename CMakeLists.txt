@@ -8,10 +8,14 @@ SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Werror -g")
 
 # Add the include directory to the include path
 include_directories(src/)
+include_directories(src/process/)
+include_directories(src/DLLoader/)
+include_directories(plugins/)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
         src/main.cpp
+        src/process/Software.cpp
         )
 
 # Copy the executable to the root directory
