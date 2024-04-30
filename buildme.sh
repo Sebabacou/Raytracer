@@ -48,7 +48,7 @@ if [ "$1" = "clean" ] || [ "$1" = "c" ]; then
   exit 0
 fi
 
-if [ "$1" = "nuke" || [ "$1" = "n" ]; then
+if [ "$1" = "nuke" ]; then
   rm -rf build
   rm $BINARY_NAME
   find . -name "*.so" -type f -delete
