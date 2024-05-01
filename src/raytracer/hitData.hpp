@@ -21,12 +21,6 @@ namespace raytracer {
             bool outside;
             std::shared_ptr<Mat> mat;
     };
-
-    class directLight {
-        public:
-            rtx::ray ray;
-            rtx::color color;
-    };
 }
 
 #endif /* !HITDATA_HPP_ */

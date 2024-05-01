@@ -153,6 +153,78 @@ src/raytracer/camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/camera.cpp.s
 .PHONY : src/raytracer/camera.cpp.s
 
+src/raytracer/lights/ambientLight.o: src/raytracer/lights/ambientLight.cpp.o
+.PHONY : src/raytracer/lights/ambientLight.o
+
+# target to build an object file
+src/raytracer/lights/ambientLight.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/ambientLight.cpp.o
+.PHONY : src/raytracer/lights/ambientLight.cpp.o
+
+src/raytracer/lights/ambientLight.i: src/raytracer/lights/ambientLight.cpp.i
+.PHONY : src/raytracer/lights/ambientLight.i
+
+# target to preprocess a source file
+src/raytracer/lights/ambientLight.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/ambientLight.cpp.i
+.PHONY : src/raytracer/lights/ambientLight.cpp.i
+
+src/raytracer/lights/ambientLight.s: src/raytracer/lights/ambientLight.cpp.s
+.PHONY : src/raytracer/lights/ambientLight.s
+
+# target to generate assembly for a file
+src/raytracer/lights/ambientLight.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/ambientLight.cpp.s
+.PHONY : src/raytracer/lights/ambientLight.cpp.s
+
+src/raytracer/lights/directionalLight.o: src/raytracer/lights/directionalLight.cpp.o
+.PHONY : src/raytracer/lights/directionalLight.o
+
+# target to build an object file
+src/raytracer/lights/directionalLight.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/directionalLight.cpp.o
+.PHONY : src/raytracer/lights/directionalLight.cpp.o
+
+src/raytracer/lights/directionalLight.i: src/raytracer/lights/directionalLight.cpp.i
+.PHONY : src/raytracer/lights/directionalLight.i
+
+# target to preprocess a source file
+src/raytracer/lights/directionalLight.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/directionalLight.cpp.i
+.PHONY : src/raytracer/lights/directionalLight.cpp.i
+
+src/raytracer/lights/directionalLight.s: src/raytracer/lights/directionalLight.cpp.s
+.PHONY : src/raytracer/lights/directionalLight.s
+
+# target to generate assembly for a file
+src/raytracer/lights/directionalLight.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/directionalLight.cpp.s
+.PHONY : src/raytracer/lights/directionalLight.cpp.s
+
+src/raytracer/lights/pointLight.o: src/raytracer/lights/pointLight.cpp.o
+.PHONY : src/raytracer/lights/pointLight.o
+
+# target to build an object file
+src/raytracer/lights/pointLight.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.o
+.PHONY : src/raytracer/lights/pointLight.cpp.o
+
+src/raytracer/lights/pointLight.i: src/raytracer/lights/pointLight.cpp.i
+.PHONY : src/raytracer/lights/pointLight.i
+
+# target to preprocess a source file
+src/raytracer/lights/pointLight.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.i
+.PHONY : src/raytracer/lights/pointLight.cpp.i
+
+src/raytracer/lights/pointLight.s: src/raytracer/lights/pointLight.cpp.s
+.PHONY : src/raytracer/lights/pointLight.s
+
+# target to generate assembly for a file
+src/raytracer/lights/pointLight.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/beton.dir/build.make CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.s
+.PHONY : src/raytracer/lights/pointLight.cpp.s
+
 src/raytracer/main.o: src/raytracer/main.cpp.o
 .PHONY : src/raytracer/main.o
 
@@ -333,6 +405,15 @@ help:
 	@echo "... src/raytracer/camera.o"
 	@echo "... src/raytracer/camera.i"
 	@echo "... src/raytracer/camera.s"
+	@echo "... src/raytracer/lights/ambientLight.o"
+	@echo "... src/raytracer/lights/ambientLight.i"
+	@echo "... src/raytracer/lights/ambientLight.s"
+	@echo "... src/raytracer/lights/directionalLight.o"
+	@echo "... src/raytracer/lights/directionalLight.i"
+	@echo "... src/raytracer/lights/directionalLight.s"
+	@echo "... src/raytracer/lights/pointLight.o"
+	@echo "... src/raytracer/lights/pointLight.i"
+	@echo "... src/raytracer/lights/pointLight.s"
 	@echo "... src/raytracer/main.o"
 	@echo "... src/raytracer/main.i"
 	@echo "... src/raytracer/main.s"

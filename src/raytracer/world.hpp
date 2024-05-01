@@ -10,12 +10,11 @@
 
 #include <list>
 #include <objects/object.hpp>
+#include <lights/light.hpp>
 #include <memory>
 #include <range.hpp>
 
 namespace raytracer {
-
-    class ILight;
 
     class World {
         public:
@@ -37,6 +36,7 @@ namespace raytracer {
             }
 
             bool hit(const rtx::ray &r, HitData &data) const;
+            bool directLight(HitData &data, rtx::color &color) const;
 
         private:
             std::list<std::shared_ptr<Object>> _objects;

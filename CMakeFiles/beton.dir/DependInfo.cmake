@@ -9,6 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/diabolo/delivery/Raytracer/src/raytracer/camera.cpp" "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/raytracer/lights/ambientLight.cpp" "CMakeFiles/beton.dir/src/raytracer/lights/ambientLight.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/lights/ambientLight.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/raytracer/lights/directionalLight.cpp" "CMakeFiles/beton.dir/src/raytracer/lights/directionalLight.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/lights/directionalLight.cpp.o.d"
+  "/home/diabolo/delivery/Raytracer/src/raytracer/lights/pointLight.cpp" "CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.o.d"
   "/home/diabolo/delivery/Raytracer/src/raytracer/main.cpp" "CMakeFiles/beton.dir/src/raytracer/main.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/main.cpp.o.d"
   "/home/diabolo/delivery/Raytracer/src/raytracer/objects/sphere.cpp" "CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o.d"
   "/home/diabolo/delivery/Raytracer/src/raytracer/world.cpp" "CMakeFiles/beton.dir/src/raytracer/world.cpp.o" "gcc" "CMakeFiles/beton.dir/src/raytracer/world.cpp.o.d"

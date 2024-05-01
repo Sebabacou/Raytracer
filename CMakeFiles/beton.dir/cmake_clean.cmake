@@ -1,6 +1,12 @@
 file(REMOVE_RECURSE
   "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o"
   "CMakeFiles/beton.dir/src/raytracer/camera.cpp.o.d"
+  "CMakeFiles/beton.dir/src/raytracer/lights/ambientLight.cpp.o"
+  "CMakeFiles/beton.dir/src/raytracer/lights/ambientLight.cpp.o.d"
+  "CMakeFiles/beton.dir/src/raytracer/lights/directionalLight.cpp.o"
+  "CMakeFiles/beton.dir/src/raytracer/lights/directionalLight.cpp.o.d"
+  "CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.o"
+  "CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.o.d"
   "CMakeFiles/beton.dir/src/raytracer/main.cpp.o"
   "CMakeFiles/beton.dir/src/raytracer/main.cpp.o.d"
   "CMakeFiles/beton.dir/src/raytracer/objects/sphere.cpp.o"

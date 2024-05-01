@@ -52,6 +52,9 @@ namespace raytracer {
         HitData data;
         rtx::ray scattered;
         rtx::vec3 attenuation;
+        rtx::color color(0, 0, 0);
+        rtx::color lightColor;
+        rtx::color totalLightColor;
 
         if (depth >= _maxDepth)
             return rtx::color(0, 0, 0);
@@ -60,14 +63,19 @@ namespace raytracer {
             // // randVec = (data.normal.dot(randVec) < 0) ? -randVec : randVec;
             // rtx::point3 target = data.normal + randVec;
 
+            for (auto &light : world.lights()) {
+                if (light->directLight(world, data, lightColor)) {
+                    totalLightColor += lightColor;
+                }
+            }
             if (data.mat->scatter(r, data, attenuation, scattered))
-                return attenuation * rayColor(scattered, world, depth + 1);
-            return rtx::color(0, 0, 0);
+                color = attenuation * (rayColor(scattered, world, depth + 1));
+            return color + attenuation * totalLightColor;
         }
-        rtx::vec3 unit_direction = r._direction;
-        float t = 0.5 * (unit_direction.y + 1.0);
-        return (1.0 - t) * rtx::color(1.0, 1.0, 1.0) + t * rtx::color(0.5, 0.7, 1.0);
-        // return rtx::color(0, 0, 0);
+        // rtx::vec3 unit_direction = r._direction;
+        // float t = 0.5 * (unit_direction.y + 1.0);
+        // return (1.0 - t) * rtx::color(1.0, 1.0, 1.0) + t * rtx::color(0.5, 0.7, 1.0);
+        return rtx::color(0, 0, 0);
     }
 
     rtx::color Camera::rayWithAntialiasing(int i, int j, World &world)

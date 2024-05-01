@@ -14,5 +14,8 @@
 #include <mats/lambertian.hpp>
 #include <mats/metal.hpp>
 #include <mats/dielectric.hpp>
+#include <lights/directionalLight.hpp>
+#include <lights/pointLight.hpp>
+#include <lights/ambientLight.hpp>
 
 #endif /* !RAYTRACER_HPP_ */

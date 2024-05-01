@@ -215,6 +215,7 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: \
  /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
  /usr/include/c++/11/bits/list.tcc \
  /home/diabolo/delivery/Raytracer/src/raytracer/objects/object.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/light.hpp \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
  /usr/include/c++/11/ratio /usr/include/c++/11/ctime \
@@ -224,6 +225,9 @@ CMakeFiles/beton.dir/src/raytracer/main.cpp.o: \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/lambertian.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/metal.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/dielectric.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/directionalLight.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/pointLight.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/ambientLight.hpp \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \

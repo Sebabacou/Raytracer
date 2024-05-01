@@ -1,7 +1,7 @@
-CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: \
- /home/diabolo/delivery/Raytracer/src/raytracer/camera.cpp \
+CMakeFiles/beton.dir/src/raytracer/lights/pointLight.cpp.o: \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/pointLight.cpp \
  /usr/include/stdc-predef.h \
- /home/diabolo/delivery/Raytracer/src/raytracer/camera.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/pointLight.hpp \
  /home/diabolo/delivery/Raytracer/include/rtx.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/vec3/vec3.hpp \
  /usr/include/c++/11/cmath \
@@ -188,12 +188,7 @@ CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: \
  /home/diabolo/delivery/Raytracer/src/rtx/color/screen.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/color/color.hpp \
  /home/diabolo/delivery/Raytracer/src/rtx/range.hpp \
- /home/diabolo/delivery/Raytracer/src/raytracer/world.hpp \
- /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/bits/list.tcc \
- /home/diabolo/delivery/Raytracer/src/raytracer/objects/object.hpp \
+ /home/diabolo/delivery/Raytracer/src/raytracer/lights/light.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/hitData.hpp \
  /home/diabolo/delivery/Raytracer/src/raytracer/mats/mat.hpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
@@ -205,16 +200,12 @@ CMakeFiles/beton.dir/src/raytracer/camera.cpp.o: \
  /usr/include/c++/11/array /usr/include/c++/11/bits/invoke.h \
  /usr/include/c++/11/bits/shared_ptr.h \
  /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/refwrap.h /usr/include/c++/11/ext/concurrence.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/bits/refwrap.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/ext/concurrence.h \
  /usr/include/c++/11/bits/shared_ptr_atomic.h \
  /usr/include/c++/11/bits/atomic_base.h \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /home/diabolo/delivery/Raytracer/src/raytracer/lights/light.hpp \
- /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
- /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
- /usr/include/c++/11/ratio /usr/include/c++/11/ctime \
- /usr/include/c++/11/bits/parse_numbers.h /usr/include/c++/11/mutex \
- /usr/include/c++/11/bits/std_mutex.h \
- /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/atomic
+ /usr/include/c++/11/pstl/glue_memory_defs.h

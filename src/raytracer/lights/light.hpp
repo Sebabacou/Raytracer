@@ -10,16 +10,16 @@
 
 #include <rtx.hpp>
 #include <hitData.hpp>
-#include <world.hpp>
 
 namespace raytracer {
 
+    class World;
     class ILight {
         public:
             ILight() = default;
             ~ILight() = default;
 
-            virtual bool directLight(World &world, HitData &data) = 0;
+            virtual bool directLight(World &world, HitData &data, rtx::color &color) = 0;
         protected:
         private:
             rtx::vec3 _position;
