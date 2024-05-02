@@ -1,0 +1,13 @@
+/*
+** EPITECH PROJECT, 2024
+** raytracer
+** File description:
+** testSo
+*/
+
+#include <iostream>
+#include "light.hpp"
+
+///////////////////////////////////////////////////////////////////
+// TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST //
+///////////////////////////////////////////////////////////////////
