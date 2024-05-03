@@ -14,9 +14,10 @@ void Software::loadAllLibs()
         if (entry.path().extension() != ".so")
             continue;
         _libs[entry.path().filename().string()] = DLLoader(entry.path().string());
-        std::cout << "Loaded: " << entry.path().filename().string() << std::endl;
+        _builder[entry.path().filename().string()] = _libs[entry.path().filename().string()].getInstance<void(*)()>("hello");
     }
 }
+
 int Software::execAllFunction(std::string funcName)
 {
     for (const auto &lib : _libs) {
