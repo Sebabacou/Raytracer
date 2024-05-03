@@ -5,10 +5,18 @@
 ** main.cpp
 */
 
+#include "Software.hpp"
 #include <iostream>
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
+    Software software;
+    software.loadAllLibs();
+    try {
+        software.execFunction("light.so", "hello");
+        software.execAllFunction("hello");
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
     return 0;
 }

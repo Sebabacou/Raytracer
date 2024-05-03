@@ -9,6 +9,9 @@ SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Werror -g")
 # Add the include directory to the include path
 include_directories(src/)
 include_directories(src/parser/)
+include_directories(src/process/)
+include_directories(src/DLLoader/)
+include_directories(plugins/)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
@@ -16,6 +19,7 @@ add_executable(raytracer
         src/parser/Parser.cpp
         src/parser/Settings.cpp
         src/parser/Object.cpp
+        src/process/Software.cpp
         )
 
 # Link the libraries to the executable
