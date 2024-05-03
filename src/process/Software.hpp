@@ -13,7 +13,10 @@
 #include <map>
 #include <memory>
 #include <filesystem>
+#include <functional>
 #include "DLLoader/DLLoader.hpp"
+
+using FunctionType = void(*)();
 
 class Software {
     public:
@@ -23,8 +26,10 @@ class Software {
         std::map<std::string, DLLoader> getLibs() const { return _libs; }
         int execFunction(const std::string &libName, const std::string &funcName);
         int execAllFunction(std::string funcName);
+        std::map<std::string, void(*)()> getBuilder() const { return _builder; }
     private:
         std::map<std::string, DLLoader> _libs;
+        std::map<std::string, void(*)()> _builder;
 };
 
 
