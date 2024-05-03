@@ -11,22 +11,22 @@ env:
     git@github.com:EpitechPromo2027/B-OOP-400-REN-4-1-raytracer-alexis.boitel.git
 
 jobs:
-#  check_compilation:
-#    runs-on: ubuntu-latest
-#    container: epitechcontent/epitest-docker:latest
-#    steps:
-#      - uses: actions/checkout@v3
-#        with:
-#          fetch-depth: 0
-#      - name: Check compilation
-#        run: |
-#          ./buildme.sh
-#      - name: Check binary
-#        run: |
-#          if [ ! -f ${{ env.BINARIES }} ]; then
-#            echo "Binary not found"
-#            exit 1
-#          fi
+  check_compilation:
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker:latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Check compilation
+        run: |
+          ./buildme.sh
+      - name: Check binary
+        run: |
+          if [ ! -f ${{ env.BINARIES }} ]; then
+            echo "Binary not found"
+            exit 1
+          fi
 
   push_to_mirror:
     if : github.event_name == 'push' && github.ref == 'refs/heads/main'
