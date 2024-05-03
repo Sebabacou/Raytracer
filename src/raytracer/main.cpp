@@ -34,7 +34,7 @@ int main(int ac, char **av)
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(0, -100.5, -1), 100, mat_ground));
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(0, 0, -1.2), 0.5, mat_center));
     // world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(-1.0, 0, -1.0), 0.5, mat_left));
-    // world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(-1.0, 0, -1.0), 0.4, mat_bubble));
+    world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(-1.0, 0, -1.0), 0.4, mat_bubble));
     // world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(1.0, 0, -1.0), 5, mat_right));
     // world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(3.0, 0, -0.5), -0.45, mat_right));
     world.addObject(std::make_shared<raytracer::Sphere>(rtx::vec3(0, 1, -1), 0.5, mat_center));
