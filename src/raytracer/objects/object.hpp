@@ -13,10 +13,10 @@
 
 namespace raytracer {
 
-    class Object {
+    class IObject {
         public:
-            Object() = default;
-            ~Object() = default;
+            IObject() = default;
+            ~IObject() = default;
 
             virtual bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const = 0;
         protected:

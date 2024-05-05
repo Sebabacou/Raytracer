@@ -16,6 +16,8 @@ set(SOURCES
     src/rtx/ray/ray.cpp
     src/raytracer/main.cpp
     src/raytracer/objects/sphere.cpp
+    src/raytracer/objects/cone.cpp
+    src/raytracer/objects/quadrilatere.cpp
     src/raytracer/camera.cpp
     src/raytracer/world.cpp
     src/rtx/color/color.cpp
@@ -23,6 +25,7 @@ set(SOURCES
     src/raytracer/lights/directionalLight.cpp
     src/raytracer/lights/ambientLight.cpp
     src/raytracer/lights/pointLight.cpp
+    src/raytracer/textures/checkTexture.cpp
 )
 
 set(CMAKE_BINARY_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)

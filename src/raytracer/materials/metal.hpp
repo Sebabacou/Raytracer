@@ -8,11 +8,11 @@
 #ifndef METAL_HPP_
 #define METAL_HPP_
 
-#include <mats/mat.hpp>
+#include <materials/material.hpp>
 
 namespace raytracer {
 
-    class Metal : public Mat {
+    class Metal : public IMaterial {
         public:
             Metal(const rtx::vec3 &a) : albedo(a) {}
             bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const override

@@ -8,13 +8,13 @@
 #ifndef DIELECTRIC_HPP_
 #define DIELECTRIC_HPP_
 
-#include <mats/mat.hpp>
+#include <materials/material.hpp>
 
 namespace raytracer {
-    class Dielectric : public Mat {
+    class Glass : public IMaterial {
         public:
-            Dielectric(double ri) : _refIdx(ri) {};
-            ~Dielectric() = default;
+            Glass(double ri) : _refIdx(ri) {};
+            ~Glass() = default;
             bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const override {
                 attenuation = rtx::vec3(1.0, 1.0, 1.0);
                 double etaiOverEtat = data.outside ? (1.0 / _refIdx) : _refIdx;

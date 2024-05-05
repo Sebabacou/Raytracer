@@ -21,10 +21,10 @@ namespace raytracer {
             World() {};
             ~World() {};
 
-            void addObject(std::shared_ptr<Object> obj) {
+            void addObject(std::shared_ptr<IObject> obj) {
                 _objects.push_back(obj);
             }
-            std::list<std::shared_ptr<Object>> &objects() {
+            std::list<std::shared_ptr<IObject>> &objects() {
                 return _objects;
             }
 
@@ -39,7 +39,7 @@ namespace raytracer {
             bool directLight(HitData &data, rtx::color &color) const;
 
         private:
-            std::list<std::shared_ptr<Object>> _objects;
+            std::list<std::shared_ptr<IObject>> _objects;
             std::list<std::shared_ptr<ILight>> _lights;
     };
 

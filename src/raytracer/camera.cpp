@@ -56,25 +56,27 @@ namespace raytracer {
         rtx::color lightColor;
         rtx::color totalLightColor;
 
+
         if (depth >= _maxDepth)
             return rtx::color(0, 0, 0);
         if (world.hit(r, data) > 0) {
-            // rtx::vec3 randVec = rtx::vec3::correctRandom();
-            // // randVec = (data.normal.dot(randVec) < 0) ? -randVec : randVec;
-            // rtx::point3 target = data.normal + randVec;
 
-            for (auto &light : world.lights()) {
-                if (light->directLight(world, data, lightColor)) {
-                    totalLightColor += lightColor;
+            if (data.mat->scatter(r, data, attenuation, scattered)) {
+                if (rtx::randomFloat(0, 1) < 0.1) {
+                    for (auto &light : world.lights()) {
+                        if (light->directLight(world, data, lightColor)) {
+                            totalLightColor += lightColor;
+                        }
+                    }
+                    return totalLightColor * attenuation;
                 }
-            }
-            if (data.mat->scatter(r, data, attenuation, scattered))
                 color = attenuation * (rayColor(scattered, world, depth + 1));
-            return color + attenuation * totalLightColor;
+            }
+            return color;
         }
-        // rtx::vec3 unit_direction = r._direction;
-        // float t = 0.5 * (unit_direction.y + 1.0);
-        // return (1.0 - t) * rtx::color(1.0, 1.0, 1.0) + t * rtx::color(0.5, 0.7, 1.0);
+        rtx::vec3 unit_direction = r._direction;
+        float t = 0.5 * (unit_direction.y + 1.0);
+        return (1.0 - t) * rtx::color(1.0, 1.0, 1.0) + t * rtx::color(0.5, 0.7, 1.0);
         return rtx::color(0, 0, 0);
     }
 

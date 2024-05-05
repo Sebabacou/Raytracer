@@ -70,12 +70,12 @@ namespace raytracer {
             rtx::color rayColor(const rtx::ray &r, World &world, int depth);
             void render(World &world, rtx::screen &image);
             void render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange);
-            void renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange);
 
             std::atomic<int> _progress = 0;
             std::mutex _mutex;
             time_t _start;
         private:
+            void renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange);
             float _fov = 90.0f;
             float _ratio;
             int _width;

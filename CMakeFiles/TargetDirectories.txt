@@ -1,3 +1,0 @@
-/home/diabolo/delivery/Raytracer/CMakeFiles/beton.dir
-/home/diabolo/delivery/Raytracer/CMakeFiles/edit_cache.dir
-/home/diabolo/delivery/Raytracer/CMakeFiles/rebuild_cache.dir

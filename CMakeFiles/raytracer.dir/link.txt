@@ -1,1 +1,0 @@
-/usr/bin/c++  -Wall -Wextra -O3 -DNDEBUG -rdynamic CMakeFiles/raytracer.dir/src/main.cpp.o -o raytracer 

@@ -8,12 +8,15 @@
 #ifndef LAMBERTIAN_HPP_
 #define LAMBERTIAN_HPP_
 
-#include <mats/mat.hpp>
+#include <materials/material.hpp>
+#include <textures/texture.hpp>
+#include <textures/solidColor.hpp>
 
 namespace raytracer {
-    class Lambertian : public Mat {
+    class TextureMaterial : public IMaterial {
         public:
-            Lambertian(const rtx::vec3 &a) : _albedo(a) {}
+            TextureMaterial(const rtx::vec3 &a) : _albedo(std::make_shared<SolidColor>(a)) {}
+            TextureMaterial(std::shared_ptr<ITexture> a) : _albedo(a) {}
             bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const override
             {
                 rtx::vec3 scatterDir = data.normal + rtx::vec3::correctRandom();
@@ -21,12 +24,12 @@ namespace raytracer {
                 if (scatterDir.isZero())
                     scatterDir = data.normal;
                 scattered = rtx::ray(data.p, scatterDir);
-                attenuation = _albedo;
+                attenuation = _albedo->value(data.u, data.v, data.p);
                 return true;
             }
 
         private:
-            rtx::vec3 _albedo;
+            std::shared_ptr<ITexture> _albedo;
     };
 }
 

@@ -13,14 +13,14 @@
 
 namespace raytracer {
 
-    class Sphere : public Object {
+    class Sphere : public IObject {
         public:
-            Sphere(rtx::vec3 center, float radius, std::shared_ptr<Mat> mat) : _position(center), _radius(radius), _mat(mat) {};
+            Sphere(rtx::vec3 center, float radius, std::shared_ptr<IMaterial> mat) : _position(center), _radius(radius), _mat(mat) {};
             ~Sphere() {};
 
             rtx::vec3 _position;
             float _radius;
-            std::shared_ptr<Mat> _mat;
+            std::shared_ptr<IMaterial> _mat;
 
             bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const override;
     };

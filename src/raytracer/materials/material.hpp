@@ -14,10 +14,10 @@ namespace raytracer {
 
     class HitData;
 
-    class Mat {
+    class IMaterial {
         public:
-            Mat() = default;
-            ~Mat() = default;
+            IMaterial() = default;
+            ~IMaterial() = default;
             virtual bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const = 0;
 
     };

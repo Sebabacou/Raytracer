@@ -9,7 +9,7 @@
 #define HITDATA_HPP_
 
 #include <rtx.hpp>
-#include <mats/mat.hpp>
+#include <materials/material.hpp>
 #include <memory>
 
 namespace raytracer {
@@ -17,9 +17,11 @@ namespace raytracer {
         public:
             rtx::point3 p;
             rtx::vec3 normal;
-            double t;
+            float t;
             bool outside;
-            std::shared_ptr<Mat> mat;
+            std::shared_ptr<IMaterial> mat;
+            float u;
+            float v;
     };
 }
 
