@@ -12,6 +12,10 @@ include_directories(src/parser/)
 include_directories(src/process/)
 include_directories(src/DLLoader/)
 include_directories(plugins/)
+include_directories(includes/)
+
+# Add the directory containing the library
+add_subdirectory(libs/rtx)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
@@ -25,6 +29,7 @@ add_executable(raytracer
 # Link the libraries to the executable
 target_link_libraries(raytracer
         config++
+        rtxlib
         )
 
 # Copy the executable to the root directory

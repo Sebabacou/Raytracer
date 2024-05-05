@@ -7,9 +7,12 @@
 
 #include "Software.hpp"
 #include <iostream>
+#include <rtx.hpp>
 
 int main()
 {
+    rtx::vec3 vec(1, 2, 3);
+    std::cout << "test: " << vec << std::endl;
     Software software;
     software.loadAllLibs();
     try {
