@@ -171,6 +171,17 @@ primitives :
 - **point_x**: X position of the point light
 - **point_y**: Y position of the point light
 - **point_z**: Z position of the point light
+
+_Exemple:_
+```cpp
+lights :
+{
+    lights = (
+        { ambient = 0.4; diffuse = 0.6; point_x = 400; point_y = 100; point_z = 500; }
+    );
+    directional = () ;
+};
+```
 </details>
 
 <details>
@@ -184,6 +195,16 @@ primitives :
 - **reflection**: Reflection intensity of the material
 - **refraction**: Refraction intensity of the material
 - **transparency**: Transparency intensity of the material
+_Exemple:_
+```cpp
+materials :
+{
+    materials = (
+        { name = "default"; ambient = 0.1; diffuse = 0.9; specular = 0.9; shininess = 100; },
+        { name = "mirror"; ambient = 0.1; diffuse = 0.1; specular = 0.9; shininess = 100; reflection = 0.9; }
+    );
+};
+```
 </details>
 
 ## Tools
