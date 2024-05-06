@@ -19,6 +19,9 @@ add_subdirectory(libs/rtx)
 
 # Add the directory containing the plugin
 add_subdirectory(plugins/lights)
+add_subdirectory(plugins/objects/cone)
+add_subdirectory(plugins/objects/quadrilatere)
+add_subdirectory(plugins/objects/sphere)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer

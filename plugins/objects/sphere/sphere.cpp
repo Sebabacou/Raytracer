@@ -5,7 +5,7 @@
 ** sphere
 */
 
-#include <objects/sphere.hpp>
+#include "sphere.hpp"
 
 namespace raytracer {
     bool Sphere::hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const

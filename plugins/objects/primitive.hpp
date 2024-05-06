@@ -8,15 +8,15 @@
 #ifndef OBJECT_HPP_
 #define OBJECT_HPP_
 
-#include <rtx.hpp>
-#include <hitData.hpp>
+#include "rtx.hpp"
+#include "hitData.hpp"
 
 namespace raytracer {
 
-    class IObject {
+    class Primitive {
         public:
-            IObject() = default;
-            ~IObject() = default;
+            Primitive() = default;
+            ~Primitive() = default;
 
             virtual bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const = 0;
         protected:

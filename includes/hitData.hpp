@@ -8,7 +8,7 @@
 #ifndef HITDATA_HPP_
 #define HITDATA_HPP_
 
-#include <rtx.hpp>
+#include "rtx.hpp"
 #include <materials/material.hpp>
 #include <memory>
 

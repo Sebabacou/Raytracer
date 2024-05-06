@@ -8,12 +8,12 @@
 #ifndef SPHERE_HPP_
 #define SPHERE_HPP_
 
-#include "object.hpp"
+#include "primitive.hpp"
 #include <memory>
 
 namespace raytracer {
 
-    class Sphere : public IObject {
+    class Sphere : public Primitive {
         public:
             Sphere(rtx::vec3 center, float radius, std::shared_ptr<IMaterial> mat) : _position(center), _radius(radius), _mat(mat) {};
             ~Sphere() {};
