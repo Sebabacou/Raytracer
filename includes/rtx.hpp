@@ -15,5 +15,7 @@
 #include <vector>
 #include <color/screen.hpp>
 #include <range.hpp>
+#include "objects/object.hpp"
+#include "raytracing/hitData.hpp"
 
 #endif /* !RTX_HPP_ */
