@@ -17,6 +17,9 @@ include_directories(includes/)
 # Add the directory containing the library
 add_subdirectory(libs/rtx)
 
+# Add the directory containing the plugin
+add_subdirectory(plugins/lights)
+
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
         src/main.cpp
