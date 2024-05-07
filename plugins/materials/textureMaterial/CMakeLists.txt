@@ -1,20 +1,25 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Set the project name
-project(textureMaterial)
+set(LIB_NAME textureMaterial)
 
 # Add the include directories
-include_directories(../../../includes)
-include_directories(../../../libs/rtx/src)
-include_directories(../../../src/raytracing)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/libs/materials)
+include_directories({PROJECT_SOURCE_DIR}/includes)
+include_directories({PROJECT_SOURCE_DIR}/libs/rtx/src)
+include_directories({PROJECT_SOURCE_DIR}/src/raytracing)
 
 # Add the library directory
-link_directories(../../../libs/rtx)
+link_directories({PROJECT_SOURCE_DIR}/libs/rtx)
 
 # Add the source files to the executable
 file(GLOB SOURCES "src/*.cpp")
-add_library(textureMaterial SHARED ${SOURCES})
+add_library(${LIB_NAME} SHARED ${SOURCES})
 
 # Link the static library to the executable
-target_link_libraries(textureMaterial rtxlib)
+target_link_libraries(${LIB_NAME} rtxlib)
+
+# Copy the library to the plugins directory
+set_target_properties(${LIB_NAME} PROPERTIES PREFIX "")
+add_custom_command(TARGET ${LIB_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy
+        $<TARGET_FILE:${LIB_NAME}>
+        ${PROJECT_SOURCE_DIR}/plugins/materials/$<TARGET_FILE_NAME:${LIB_NAME}>)

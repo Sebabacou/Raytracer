@@ -4,6 +4,7 @@
 *.ppm
 raytracer
 build/
+debug/
 # Compiled Object files
 *.slo
 *.lo
