@@ -60,7 +60,6 @@ namespace raytracer {
         if (depth >= _maxDepth)
             return rtx::color(0, 0, 0);
         if (world.hit(r, data) > 0) {
-
             if (data.mat->scatter(r, data, attenuation, scattered)) {
                 if (rtx::randomFloat(0, 1) < 0.1) {
                     for (auto &light : world.lights()) {
@@ -172,5 +171,16 @@ namespace raytracer {
            << ", viewport_origin: " << c.viewportOrigin() << ", pixel_u: "
            << c.pixelU() << ", pixel_v: " << c.pixelV() << ")";
         return os;
+    }
+}
+
+extern "C" {
+    raytracer::ICamera *factory()
+    {
+        return new raytracer::BasicCamera();
+    }
+    std::string getName()
+    {
+        return "BasicCamera";
     }
 }

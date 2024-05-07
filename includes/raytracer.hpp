@@ -12,6 +12,7 @@
 #include <objects/object.hpp>
 #include <materials/material.hpp>
 #include <cameras/camera.hpp>
+#include <textures/texture.hpp>
 #include <world.hpp>
 
 #endif /* !RAYTRACER_HPP_ */

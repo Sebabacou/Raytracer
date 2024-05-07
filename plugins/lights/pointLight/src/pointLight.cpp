@@ -26,7 +26,7 @@ namespace raytracer {
 }
 
 extern "C" {
-    raytracer::ILight *createLight(rtx::vec3 position, rtx::vec3 color, float radius)
+    raytracer::ILight *factory(rtx::vec3 position, rtx::vec3 color, float radius)
     {
         return new raytracer::PointLight(position, color, radius);
     }

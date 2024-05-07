@@ -12,7 +12,9 @@
 #include <stdexcept>
 #include <dlfcn.h>
 #include <memory>
+#include <iostream>
 
+template<typename T>
 class DLLoader {
 public:
     DLLoader() : _handle(nullptr) {}
@@ -28,6 +30,7 @@ public:
         }
     }
     ~DLLoader() {
+        std::cout << "Destructor of DLLoader" << std::endl;
         if (_handle)
             dlclose(_handle);
     }
@@ -55,18 +58,33 @@ public:
         return *this;
     }
 
-    template<typename T>
+    void getInstance(const std::string &name) {
+        std::string (*getName)() = (std::string (*)())dlsym(_handle, "getName");
+        if (!getName) {
+            throw std::runtime_error("Cannot load symbol: " + std::string(dlerror()));
+        }
+        _name = getName();
+        std::cout << "Name: " << _name << std::endl;
 
-     T getInstance(const std::string &name) {
         T create = (T)dlsym(_handle, name.c_str());
         if (!create) {
             throw std::runtime_error("Cannot load symbol: " + std::string(dlerror()));
         }
-        return create;
+        _instance = create;
+    }
+
+    T getInstance() {
+        return _instance;
+    }
+
+    std::string getName() {
+        return _name;
     }
 
     private:
         void *_handle;
+        T _instance;
+        std::string _name;
 };
 
 

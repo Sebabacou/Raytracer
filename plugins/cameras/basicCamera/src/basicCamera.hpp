@@ -27,6 +27,8 @@ namespace raytracer {
                 _ratio = 16.0f / 9.0f;
                 _width = 800;
                 _fov = 90.0f;
+                _antialiasing = true;
+                _antialiasingSamples = 15;
                 setup();
             }
             // BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
