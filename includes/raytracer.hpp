@@ -1,0 +1,17 @@
+/*
+** EPITECH PROJECT, 2024
+** Raytracer
+** File description:
+** raytracer
+*/
+
+#ifndef RAYTRACER_HPP_
+#define RAYTRACER_HPP_
+
+#include <iostream>
+#include <objects/object.hpp>
+#include <materials/material.hpp>
+#include <cameras/camera.hpp>
+#include <world.hpp>
+
+#endif /* !RAYTRACER_HPP_ */

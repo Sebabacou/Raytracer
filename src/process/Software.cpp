@@ -10,12 +10,25 @@
 
 void Software::loadAllLibs()
 {
-    for (const auto &entry : std::filesystem::directory_iterator("plugins")) {
+    for (const auto &entry : std::filesystem::directory_iterator("plugins/objects")) {
+        std::cout << entry.path().filename().string() << std::endl;
         if (entry.path().extension() != ".so")
             continue;
-        _libs[entry.path().filename().string()] = DLLoader(entry.path().string());
-        _builder[entry.path().filename().string()] = _libs[entry.path().filename().string()].getInstance<void(*)()>("hello");
+        try {
+            _objectBuilder[entry.path().filename().string()] = getFactory<raytracer::IObject *(*)()>(entry.path().string());
+            std::cout << "Object loaded: " << entry.path().filename().string() << std::endl;
+        } catch (const std::runtime_error &e) {
+            std::cerr << e.what() << std::endl;
+            std::cerr << e.what() << std::endl;
+        }
     }
+
+    // for (const auto &entry : std::filesystem::directory_iterator("plugins")) {
+    //     if (entry.path().extension() != ".so")
+    //         continue;
+    //     _libs[entry.path().filename().string()] = DLLoader(entry.path().string());
+    //     _builder[entry.path().filename().string()] = _libs[entry.path().filename().string()].getInstance<void(*)()>("hello");
+    // }
 }
 
 int Software::execAllFunction(std::string funcName)
@@ -37,5 +50,12 @@ int Software::execFunction(const std::string &libName, const std::string &funcNa
         throw std::runtime_error("Function not load in library");
 
     _libs[libName].getInstance<void(*)()>(funcName)();
+    return 0;
+}
+
+int Software::start()
+{
+    std::cout << _world << std::endl;
+    loadAllLibs();
     return 0;
 }
