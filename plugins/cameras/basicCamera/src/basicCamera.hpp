@@ -5,8 +5,8 @@
 ** camera
 */
 
-#ifndef CAMERA_HPP_
-#define CAMERA_HPP_
+#ifndef BASICCAMERACAMERA_HPP_
+#define BASICCAMERA_HPP_
 
 #include <rtx.hpp>
 #include <world.hpp>
@@ -14,35 +14,40 @@
 #include <mutex>
 #include <atomic>
 #include <ctime>
+#include <cameras/camera.hpp>
+#include <materials/material.hpp>
 
 namespace raytracer {
 
-    class Camera {
+    class BasicCamera : public ICamera {
         public:
-            Camera() :
-                _pos(rtx::point3(0, 0, 0)), _lookAt(rtx::point3(0, 0, -1)),
-                _ratio(16.0f / 9.0f), _width(800), _fov(90.0f) {
+            BasicCamera() {
+                _pos = rtx::point3(0, 0, 0);
+                _lookAt = rtx::point3(0, 0, -1);
+                _ratio = 16.0f / 9.0f;
+                _width = 800;
+                _fov = 90.0f;
                 setup();
             }
-            Camera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
-                _pos(pos), _lookAt(lookAt),
-                _ratio(ratio), _width(width), _fov(fov) {
-                setup();
-            }
-            Camera(rtx::point3 pos, rtx::point3 lookAt, int width) :
-                _pos(pos), _lookAt(lookAt),
-                _ratio(16.0f / 9.0f), _width(width), _fov(90.0f) {
-                setup();
-            }
-            Camera(const Camera &c) {
-                _pos = c._pos;
-                _lookAt = c._lookAt;
-                _ratio = c._ratio;
-                _width = c._width;
-                _fov = c._fov;
-                setup();
-            }
-            ~Camera() = default;
+            // BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
+            //     _pos(pos), _lookAt(lookAt),
+            //     _ratio(ratio), _width(width), _fov(fov) {
+            //     setup();
+            // }
+            // BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width) :
+            //     _pos(pos), _lookAt(lookAt),
+            //     _ratio(16.0f / 9.0f), _width(width), _fov(90.0f) {
+            //     setup();
+            // }
+            // BasicCamera(const BasicCamera &c) {
+            //     _pos = c._pos;
+            //     _lookAt = c._lookAt;
+            //     _ratio = c._ratio;
+            //     _width = c._width;
+            //     _fov = c._fov;
+            //     setup();
+            // }
+            ~BasicCamera() = default;
 
             rtx::point3 origin() { return _pos; }
             rtx::point3 viewportOrigin() { return _viewportOrigin; }
@@ -68,8 +73,8 @@ namespace raytracer {
             rtx::pixel pixelAt(int i, int j, World &world);
             rtx::color rayWithAntialiasing(int i, int j, World &world);
             rtx::color rayColor(const rtx::ray &r, World &world, int depth);
-            void render(World &world, rtx::screen &image);
-            void render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange);
+            void render(World &world, rtx::screen &image) override;
+            void render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange) override;
 
             std::atomic<int> _progress = 0;
             std::mutex _mutex;
@@ -100,7 +105,7 @@ namespace raytracer {
             void setup();
     };
 
-    std::ostream &operator<<(std::ostream &os, Camera &c);
+    std::ostream &operator<<(std::ostream &os, BasicCamera &c);
 }
 
 #endif /* !CAMERA_HPP_ */

@@ -22,7 +22,6 @@ namespace raytracer {
             virtual bool directLight(World &world, HitData &data, rtx::color &color) = 0;
         protected:
         private:
-            rtx::vec3 _position;
     };
 }
 

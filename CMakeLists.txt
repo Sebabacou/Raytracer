@@ -11,14 +11,17 @@ include_directories(src/)
 include_directories(src/parser/)
 include_directories(src/process/)
 include_directories(src/DLLoader/)
-include_directories(plugins/)
 include_directories(includes/)
+include_directories(src/raytracing/)
 
 # Add the directory containing the library
 add_subdirectory(libs/rtx)
 
-# Add the directory containing the plugin
-add_subdirectory(plugins/lights)
+# # Add the directory containing the plugin
+add_subdirectory(plugins/lights/pointLight)
+add_subdirectory(plugins/materials/textureMaterial)
+add_subdirectory(plugins/cameras/basicCamera)
+add_subdirectory(plugins/objects/sphere)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
@@ -27,6 +30,7 @@ add_executable(raytracer
         src/parser/Settings.cpp
         src/parser/Object.cpp
         src/process/Software.cpp
+        src/raytracing/world.cpp
         )
 
 # Link the libraries to the executable

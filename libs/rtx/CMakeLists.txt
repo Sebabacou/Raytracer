@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.10)
 
 project(rtxlib)
 
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 set(SOURCES
     src/color/color.cpp
     src/color/screen.cpp
