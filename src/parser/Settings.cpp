@@ -45,5 +45,19 @@ namespace raytracer {
         _sceneSettings[type][subtype].back().addParam(param, value);
     }
 
+    std::ostream &operator<<(std::ostream &os, const Settings &settings)
+    {
+        for (auto &type : settings.getSceneSettings()) {
+            std::cout << "[TYPE]: " << type.first << std::endl;
+            for (auto &subtype : type.second) {
+                std::cout << "[SUBTYPE]: " << subtype.first << std::endl;
+                for (auto &object : subtype.second) {
+                    std::cout << "[OBJECT]: " << object.getId() << std::endl;
+                    object.printParams();
+                }
+            }
+        }
+        return os;
+    }
 
 }

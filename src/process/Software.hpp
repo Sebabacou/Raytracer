@@ -16,26 +16,30 @@
 #include <functional>
 #include <DLLoader/DLLoader.hpp>
 #include <raytracer.hpp>
+#include <Parser.hpp>
 
 
 using FunctionType = void(*)();
 
 class Software {
     public:
-        Software() = default;
+        Software() {
+            try {
+                _parser.parseFile("scenes/config.cfg");
+                std::cout << "settings loaded" << std::endl;
+                std::cout << _parser.getSettings() << std::endl;
+            } catch (const std::exception &e) {
+                std::cerr << "Error: " << e.what() << std::endl;
+            }
+        }
         ~Software() = default;
 
         int start();
 
 
         void loadAllLibs();
-        // std::map<std::string, DLLoader> getLibs() const { return _libs; }
-        int execFunction(const std::string &libName, const std::string &funcName);
-        int execAllFunction(std::string funcName);
-        // std::map<std::string, void(*)()> getBuilder() const { return _builder; }
     private:
-        // std::map<std::string, DLLoader> _libs;
-        // std::map<std::string, void(*)()> _builder;
+        raytracer::Parser _parser;
 
         std::vector<std::shared_ptr<DLLoader<raytracer::IObject *(*)(void)>>> _objectBuilder;
         std::vector<std::shared_ptr<DLLoader<raytracer::IMaterial *(*)(void)>>> _materialBuilder;

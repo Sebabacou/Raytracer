@@ -74,7 +74,7 @@ namespace raytracer {
              *
              * @return The settings of the scene
              */
-            std::map<std::string, std::map<std::string, std::list<Object>>> getSceneSettings() { return _sceneSettings; }
+            std::map<std::string, std::map<std::string, std::list<Object>>> getSceneSettings() const { return _sceneSettings; }
 
             /**
              * @brief Get the objects of the scene by type
@@ -109,4 +109,6 @@ namespace raytracer {
              */
             std::size_t _id = 0;
     };
+
+    std::ostream &operator<<(std::ostream &os, const Settings &s);
 }
