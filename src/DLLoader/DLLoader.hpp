@@ -63,7 +63,7 @@ public:
             throw std::runtime_error("Cannot load symbol: " + std::string(dlerror()));
         }
         _name = getName();
-        std::cout << "Name: " << _name << std::endl;
+//        std::cout << "Name: " << _name << std::endl; // TODO : remove
 
         T create = (T)dlsym(_handle, name.c_str());
         if (!create) {

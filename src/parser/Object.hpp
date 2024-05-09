@@ -48,6 +48,12 @@ namespace raytracer {
              */
             [[nodiscard]] std::string getParam(const std::string &name) const { return _params.at(name); }
 
+            /**
+             * @brief Get the name of the object
+             *
+             * @return The name of the object
+             */
+            std::string getName() const;
 
             /**
              * @brief Set a parameter of the object
@@ -71,7 +77,7 @@ namespace raytracer {
              * @details This function will print the parameters of the object in the following format:
              * @details [id]: param1 = value1
              */
-            void printParams() const;
+            void printParams();
         private:
 
             /**
