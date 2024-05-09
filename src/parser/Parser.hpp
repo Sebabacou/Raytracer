@@ -55,6 +55,12 @@ namespace raytracer {
              */
             void parseSettings(const libconfig::Setting& setting, std::string type, std::string subtype = "");
 
+            /**
+             * @brief Get the settings
+             *
+             * @return The settings of the scene
+             */
+            Settings getSettings() { return _settings; }
     private:
             /**
              * @brief The settings of the scene
