@@ -67,7 +67,6 @@ namespace raytracer {
                 _settings.addTypeObject(it.getName());
                 parseSettings(it, it.getName());
             }
-            _settings.printSettings();
         } catch (const libconfig::FileIOException &fioex) {
             std::cerr << "I/O error while reading file: " << file << std::endl;
             return false;

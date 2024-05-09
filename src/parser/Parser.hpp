@@ -61,7 +61,7 @@ namespace raytracer {
              * @return The settings of the scene
              */
             Settings getSettings() { return _settings; }
-    private:
+        private:
             /**
              * @brief The settings of the scene
              */

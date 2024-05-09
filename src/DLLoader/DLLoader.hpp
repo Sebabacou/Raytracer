@@ -30,7 +30,6 @@ public:
         }
     }
     ~DLLoader() {
-        std::cout << "Destructor of DLLoader" << std::endl;
         if (_handle)
             dlclose(_handle);
     }

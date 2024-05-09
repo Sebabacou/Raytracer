@@ -11,9 +11,7 @@ namespace raytracer {
 
     void Object::addParam(const std::string &name, const std::string &value)
     {
-        std::cerr << "Adding param: " << name << " = " << value << std::endl;
         _params[name] = value;
-        std::cerr << "Param added" << std::endl;
     }
 
     void Object::printParams() const
