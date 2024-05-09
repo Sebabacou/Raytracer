@@ -27,7 +27,8 @@ class Software {
             try {
                 _parser.parseFile("scenes/config.cfg");
                 std::cout << "settings loaded" << std::endl;
-                std::cout << _parser.getSettings() << std::endl;
+                _settings = _parser.getSettings();
+//                std::cout << _parser.getSettings() << std::endl;
             } catch (const std::exception &e) {
                 std::cerr << "Error: " << e.what() << std::endl;
             }
@@ -41,6 +42,7 @@ class Software {
     private:
         raytracer::Parser _parser;
 
+        raytracer::Settings _settings;
         std::vector<std::shared_ptr<DLLoader<raytracer::IObject *(*)(void)>>> _objectBuilder;
         std::vector<std::shared_ptr<DLLoader<raytracer::IMaterial *(*)(void)>>> _materialBuilder;
         std::vector<std::shared_ptr<DLLoader<raytracer::ICamera *(*)(void)>>> _cameraBuilder;
