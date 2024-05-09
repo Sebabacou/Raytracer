@@ -19,9 +19,13 @@ add_subdirectory(libs/rtx)
 
 # # Add the directory containing the plugin
 add_subdirectory(plugins/lights/pointLight)
+add_subdirectory(plugins/lights/directionalLight)
+add_subdirectory(plugins/lights/ambientLight)
 add_subdirectory(plugins/materials/textureMaterial)
 add_subdirectory(plugins/cameras/basicCamera)
 add_subdirectory(plugins/objects/sphere)
+add_subdirectory(plugins/objects/quadrilatere)
+add_subdirectory(plugins/objects/cone)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
