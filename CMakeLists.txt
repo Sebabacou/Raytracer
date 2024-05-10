@@ -21,8 +21,14 @@ add_subdirectory(libs/rtx)
 add_subdirectory(plugins/lights/pointLight)
 add_subdirectory(plugins/lights/directionalLight)
 add_subdirectory(plugins/lights/ambientLight)
+
 add_subdirectory(plugins/materials/textureMaterial)
+add_subdirectory(plugins/materials/defaultMaterial)
+add_subdirectory(plugins/materials/glass)
+add_subdirectory(plugins/materials/metal)
+
 add_subdirectory(plugins/cameras/basicCamera)
+
 add_subdirectory(plugins/objects/sphere)
 add_subdirectory(plugins/objects/quadrilatere)
 add_subdirectory(plugins/objects/cone)
