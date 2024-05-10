@@ -23,7 +23,7 @@ add_subdirectory(plugins/lights/directionalLight)
 add_subdirectory(plugins/lights/ambientLight)
 
 add_subdirectory(plugins/materials/textureMaterial)
-add_subdirectory(plugins/materials/defaultMaterial)
+#add_subdirectory(plugins/materials/defaultMaterial)
 add_subdirectory(plugins/materials/glass)
 add_subdirectory(plugins/materials/metal)
 
