@@ -8,7 +8,7 @@
 #ifndef CONE_HPP_
 #define CONE_HPP_
 
-#include "object.hpp"
+#include <objects/object.hpp>
 #include <memory>
 
 namespace raytracer {

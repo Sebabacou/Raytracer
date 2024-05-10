@@ -8,7 +8,8 @@
 #ifndef SPHERE_HPP_
 #define SPHERE_HPP_
 
-#include "object.hpp"
+#include <objects/object.hpp>
+#include <materials/defaultMaterial.hpp>
 #include <memory>
 
 namespace raytracer {
@@ -23,6 +24,7 @@ namespace raytracer {
             std::shared_ptr<IMaterial> _mat;
 
             bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const override;
+            std::string debugString() const override;
     };
 
     std::ostream &operator<<(std::ostream &os, const Sphere &s);

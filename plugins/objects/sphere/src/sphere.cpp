@@ -5,7 +5,9 @@
 ** sphere
 */
 
-#include <objects/sphere.hpp>
+#include "sphere.hpp"
+#include <sstream>
+
 
 namespace raytracer {
     bool Sphere::hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const
@@ -33,10 +35,27 @@ namespace raytracer {
         return true;
     }
 
+    std::string Sphere::debugString() const
+    {
+        std::ostringstream os;
+        os << "Sphere(" << _position << ", " << _radius << ")";
+        return os.str();
+    }
+
     std::ostream &operator<<(std::ostream &os, const Sphere &s)
     {
         os << "Sphere(" << s._position << ", " << s._radius << ")";
         return os;
     }
+}
 
+extern "C" {
+    raytracer::IObject *factory()
+    {
+        return new raytracer::Sphere(rtx::vec3(0, -0.25, -1), 0.5, std::make_shared<raytracer::DefaultMaterial>());
+    }
+    std::string getName()
+    {
+        return "Sphere";
+    }
 }

@@ -9,10 +9,12 @@
 #define HITDATA_HPP_
 
 #include <rtx.hpp>
-#include <materials/material.hpp>
 #include <memory>
 
 namespace raytracer {
+
+    class IMaterial;
+
     class HitData {
         public:
             rtx::point3 p;

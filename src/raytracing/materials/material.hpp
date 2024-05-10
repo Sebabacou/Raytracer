@@ -9,10 +9,9 @@
 #define MAT_HPP_
 
 #include <rtx.hpp>
+#include <hitData.hpp>
 
 namespace raytracer {
-
-    class HitData;
 
     class IMaterial {
         public:

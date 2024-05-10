@@ -5,16 +5,16 @@
 ** camera
 */
 
-#include "camera.hpp"
+#include "basicCamera.hpp"
 
 namespace raytracer {
-    void Camera::reset() {
+    void BasicCamera::reset() {
         _pos = rtx::point3(0, 0, 0);
         _lookAt = rtx::point3(0, 0, -1);
         setup();
     }
 
-    void Camera::setup() {
+    void BasicCamera::setup() {
         rtx::point3 _viewportRealOrigin;
         rtx::vec3 xB;
         rtx::vec3 yB;
@@ -47,7 +47,7 @@ namespace raytracer {
             + _pixelU / 2 + _pixelV / 2;
     }
 
-    rtx::color Camera::rayColor(const rtx::ray &r, World &world, int depth)
+    rtx::color BasicCamera::rayColor(const rtx::ray &r, World &world, int depth)
     {
         HitData data;
         rtx::ray scattered;
@@ -60,7 +60,6 @@ namespace raytracer {
         if (depth >= _maxDepth)
             return rtx::color(0, 0, 0);
         if (world.hit(r, data) > 0) {
-
             if (data.mat->scatter(r, data, attenuation, scattered)) {
                 if (rtx::randomFloat(0, 1) < 0.1) {
                     for (auto &light : world.lights()) {
@@ -80,7 +79,7 @@ namespace raytracer {
         return rtx::color(0, 0, 0);
     }
 
-    rtx::color Camera::rayWithAntialiasing(int i, int j, World &world)
+    rtx::color BasicCamera::rayWithAntialiasing(int i, int j, World &world)
     {
         rtx::color color(0, 0, 0);
         rtx::point3 pixel;
@@ -98,7 +97,7 @@ namespace raytracer {
         return color / _antialiasingSamples;
     }
 
-    rtx::pixel Camera::pixelAt(int i, int j, World &world)
+    rtx::pixel BasicCamera::pixelAt(int i, int j, World &world)
     {
         rtx::point3 pixel;
         rtx::ray r;
@@ -111,7 +110,7 @@ namespace raytracer {
 
     }
 
-    void Camera::renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
+    void BasicCamera::renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
     {
         for (int i = yRange._min; i < yRange._max; i++) {
             for (int j = xRange._min; j < xRange._max; j++) {
@@ -129,7 +128,7 @@ namespace raytracer {
         }
     }
 
-    void Camera::render(World &world, rtx::screen &image)
+    void BasicCamera::render(World &world, rtx::screen &image)
     {
         image.setSize(_width, _height);
 
@@ -146,17 +145,17 @@ namespace raytracer {
             for (int j = 0; j < root; j++) {
                 rtx::range xR(j * xRange, (j + 1) * xRange);
                 rtx::range yR(i * yRange, (i + 1) * yRange);
-                threads.push_back(std::thread(&Camera::renderThread, this, std::ref(world), std::ref(image), xR, yR));
+                threads.push_back(std::thread(&BasicCamera::renderThread, this, std::ref(world), std::ref(image), xR, yR));
             }
         }
-        for (int i = 0; i < threads.size(); i++) {
+        for (int i = 0; i < (int)threads.size(); i++) {
             threads[i].join();
         }
         std::cout << std::endl;
         std::cout << "Render time: " << time(0) - start << "s" << std::endl;
     }
 
-    void Camera::render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
+    void BasicCamera::render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
     {
         image.setSize(_width, _height);
 
@@ -167,10 +166,21 @@ namespace raytracer {
         std::cout << std::endl;
     }
 
-    std::ostream &operator<<(std::ostream &os, Camera &c) {
+    std::ostream &operator<<(std::ostream &os, BasicCamera &c) {
         os << "Camera(origin: " << c.origin()
            << ", viewport_origin: " << c.viewportOrigin() << ", pixel_u: "
            << c.pixelU() << ", pixel_v: " << c.pixelV() << ")";
         return os;
+    }
+}
+
+extern "C" {
+    raytracer::ICamera *factory()
+    {
+        return new raytracer::BasicCamera();
+    }
+    std::string getName()
+    {
+        return "BasicCamera";
     }
 }

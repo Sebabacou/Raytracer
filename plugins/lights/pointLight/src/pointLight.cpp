@@ -24,3 +24,10 @@ namespace raytracer {
         // return true;
     }
 }
+
+extern "C" {
+    raytracer::ILight *factory(rtx::vec3 position, rtx::vec3 color, float radius)
+    {
+        return new raytracer::PointLight(position, color, radius);
+    }
+}

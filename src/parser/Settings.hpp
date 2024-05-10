@@ -74,7 +74,7 @@ namespace raytracer {
              *
              * @return The settings of the scene
              */
-            std::map<std::string, std::map<std::string, std::list<Object>>> getSceneSettings() { return _sceneSettings; }
+            [[nodiscard]] std::map<std::string, std::map<std::string, std::list<Object>>> getSceneSettings() const { return _sceneSettings; }
 
             /**
              * @brief Get the objects of the scene by type
@@ -82,7 +82,7 @@ namespace raytracer {
              * @param type The type of the object
              * @return The objects of the scene by type
              */
-            std::map<std::string, std::list<Object>> getObjectsByType(const std::string &type) { return _sceneSettings[type]; }
+            [[nodiscard]] std::map<std::string, std::list<Object>> getObjectsByType(const std::string &type) { return _sceneSettings[type]; }
 
             /**
              * @brief Get the objects of the scene by subtype
@@ -91,7 +91,7 @@ namespace raytracer {
              * @param subtype The subtype of the object
              * @return The objects of the scene by subtype
              */
-            std::list<Object> getObjectsBySubType(const std::string &type, const std::string &subtype) { return _sceneSettings[type][subtype]; }
+            [[nodiscard]] std::list<Object> getObjectsBySubType(const std::string &type, const std::string &subtype) { return _sceneSettings[type][subtype]; }
         private:
             /**
              * @brief The settings of the scene
@@ -109,4 +109,6 @@ namespace raytracer {
              */
             std::size_t _id = 0;
     };
+
+    std::ostream &operator<<(std::ostream &os, const Settings &s);
 }
