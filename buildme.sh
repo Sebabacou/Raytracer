@@ -50,6 +50,7 @@ fi
 
 if [ "$1" = "nuke" ]; then
   rm -rf build
+  rm -rf debug
   rm $BINARY_NAME
   find . -name "*.cmake" -type f -delete
   find . -name "*Cache.txt" -type f -delete
