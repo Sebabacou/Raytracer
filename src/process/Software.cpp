@@ -18,9 +18,13 @@ void Software::loadAllLibs()
 
 void Software::linkLibsToConfig()
 {
+    std::cout << "================ P ================" << std::endl;
     linkLibToConfig("primitives", _objectBuilder);
+    std::cout << "================ C ================" << std::endl;
     linkLibToConfig("camera", _cameraBuilder);
+    std::cout << "================ M ================" << std::endl;
     linkLibToConfig("materials", _materialBuilder);
+    std::cout << "================ L ================" << std::endl;
     linkLibToConfig("lights", _lightBuilder);
 }
 
