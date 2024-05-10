@@ -5,6 +5,7 @@
 raytracer
 build/
 debug/
+trace
 # Compiled Object files
 *.slo
 *.lo
