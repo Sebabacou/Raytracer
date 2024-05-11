@@ -12,10 +12,10 @@
 #include <hitData.hpp>
 
 namespace raytracer {
-    class IObject {
+    class IPrimitive {
         public:
-            IObject() = default;
-            ~IObject() = default;
+            IPrimitive() = default;
+            ~IPrimitive() = default;
 
             virtual bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const = 0;
             virtual std::string debugString() const = 0;

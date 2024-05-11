@@ -50,7 +50,7 @@ namespace raytracer {
 }
 
 extern "C" {
-    raytracer::IObject *factory()
+    raytracer::IPrimitive *factory()
     {
         return new raytracer::Sphere(rtx::vec3(0, -0.25, -1), 0.5, std::make_shared<raytracer::DefaultMaterial>());
     }

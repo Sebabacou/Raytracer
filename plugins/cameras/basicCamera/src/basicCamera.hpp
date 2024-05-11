@@ -15,6 +15,7 @@
 #include <atomic>
 #include <ctime>
 #include <cameras/camera.hpp>
+#include <parser/Object.hpp>
 #include <materials/material.hpp>
 
 namespace raytracer {
@@ -31,24 +32,24 @@ namespace raytracer {
                 _antialiasingSamples = 15;
                 setup();
             }
-            // BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
-            //     _pos(pos), _lookAt(lookAt),
-            //     _ratio(ratio), _width(width), _fov(fov) {
-            //     setup();
-            // }
-            // BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width) :
-            //     _pos(pos), _lookAt(lookAt),
-            //     _ratio(16.0f / 9.0f), _width(width), _fov(90.0f) {
-            //     setup();
-            // }
-            // BasicCamera(const BasicCamera &c) {
-            //     _pos = c._pos;
-            //     _lookAt = c._lookAt;
-            //     _ratio = c._ratio;
-            //     _width = c._width;
-            //     _fov = c._fov;
-            //     setup();
-            // }
+            BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
+                _pos(pos), _lookAt(lookAt),
+                _ratio(ratio), _width(width), _fov(fov) {
+                setup();
+            }
+            BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width) :
+                _pos(pos), _lookAt(lookAt),
+                _ratio(16.0f / 9.0f), _width(width), _fov(90.0f) {
+                setup();
+            }
+            BasicCamera(const BasicCamera &c) {
+                _pos = c._pos;
+                _lookAt = c._lookAt;
+                _ratio = c._ratio;
+                _width = c._width;
+                _fov = c._fov;
+                setup();
+            }
             ~BasicCamera() = default;
 
             rtx::point3 origin() { return _pos; }

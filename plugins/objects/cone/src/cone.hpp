@@ -8,11 +8,11 @@
 #ifndef CONE_HPP_
 #define CONE_HPP_
 
-#include <objects/object.hpp>
+#include <primitives/primitive.hpp>
 #include <memory>
 
 namespace raytracer {
-    class Cone : public IObject {
+    class Cone : public IPrimitive {
         public:
             Cone(rtx::point3 center, float radius, float height, std::shared_ptr<IMaterial> material)
                 : _position(center), _radius(radius), _height(height), _mat(material) {};

@@ -175,8 +175,11 @@ namespace raytracer {
 }
 
 extern "C" {
-    raytracer::ICamera *factory()
+    raytracer::ICamera *factory(raytracer::Object &object)
     {
+        std::cout << "Creating BasicCamera" << std::endl;
+        std::cout << object.getParam("position_x") << std::endl;
+        // std::cout << object.getParams("x") << std::endl;
         return new raytracer::BasicCamera();
     }
     std::string getName()

@@ -8,7 +8,7 @@
 #ifndef CHECKTEXTURE_HPP_
 #define CHECKTEXTURE_HPP_
 
-#include "texture.hpp"
+#include <textures/texture.hpp>
 #include <rtx.hpp>
 
 namespace raytracer {

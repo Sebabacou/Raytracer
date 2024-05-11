@@ -77,16 +77,21 @@ class Software {
         template <typename T>
         void linkLibToConfig(const std::string& type, const std::vector<std::shared_ptr<DLLoader<T>>>& builder);
 
+        void loadWorld();
+        void loadCameras();
+        void loadCamera(std::string cameraType);
+        void loadTextures();
+
     private:
         raytracer::Parser _parser;
 
         raytracer::Settings _settings;
         raytracer::World _world;
-        std::vector<std::shared_ptr<raytracer::ICamera>> _cameras;
+        std::vector<std::pair<std::string, std::shared_ptr<raytracer::ICamera>>> _cameras;
 
-        std::vector<std::shared_ptr<DLLoader<raytracer::IObject *(*)(void)>>> _objectBuilder;
+        std::vector<std::shared_ptr<DLLoader<raytracer::IPrimitive *(*)(void)>>> _objectBuilder;
         std::vector<std::shared_ptr<DLLoader<raytracer::IMaterial *(*)(void)>>> _materialBuilder;
-        std::vector<std::shared_ptr<DLLoader<raytracer::ICamera *(*)(void)>>> _cameraBuilder;
+        std::vector<std::shared_ptr<DLLoader<raytracer::ICamera *(*)(raytracer::Object &)>>> _cameraBuilder;
         std::vector<std::shared_ptr<DLLoader<raytracer::ILight *(*)(void)>>> _lightBuilder;
 };
 

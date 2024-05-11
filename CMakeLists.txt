@@ -26,6 +26,8 @@ add_subdirectory(plugins/materials/textureMaterial)
 add_subdirectory(plugins/materials/glass)
 add_subdirectory(plugins/materials/metal)
 
+add_subdirectory(plugins/textures/solidColor)
+
 add_subdirectory(plugins/cameras/basicCamera)
 
 add_subdirectory(plugins/objects/sphere)
@@ -37,8 +39,8 @@ add_executable(raytracer
         src/main.cpp
         src/parser/Parser.cpp
         src/parser/Settings.cpp
-        src/parser/Object.cpp
         src/process/Software.cpp
+        src/process/SoftwareWorld.cpp
         src/raytracing/world.cpp
         )
 
