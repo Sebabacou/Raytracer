@@ -17,6 +17,7 @@
 #include <DLLoader/DLLoader.hpp>
 #include <raytracer.hpp>
 #include <Parser.hpp>
+#include <debug.hpp>
 
 using FunctionType = void(*)();
 
@@ -30,7 +31,7 @@ class Software {
         Software(std::string path) : _parser() {
             try {
                 _parser.parseFile(path);
-                std::cout << "settings loaded" << std::endl;
+                std::cout << GREEN << "Settings loaded" << RESET << std::endl;
                 _settings = _parser.getSettings();
             } catch (const std::exception &e) {
                 std::cerr << "Error: " << e.what() << std::endl;
@@ -59,35 +60,34 @@ class Software {
         template <typename T>
         void loadLibs(const std::string& path, std::vector<std::shared_ptr<DLLoader<T>>>& builder);
 
-        /**
-         * @brief Link the libraries to the config
-         *
-         * @details This function will link the libraries to the config by calling the linkLibToConfig function for each type
-         */
-        void linkLibsToConfig();
-
-        /**
-         * @brief Link the libraries to the config
-         *
-         * @tparam T The type of the library
-         * @param type The type of the object
-         * @param builder The vector of the libraries
-         * @details This function will link the libraries to the config
-         */
-        template <typename T>
-        void linkLibToConfig(const std::string& type, const std::vector<std::shared_ptr<DLLoader<T>>>& builder);
-
     private:
         raytracer::Parser _parser;
 
         raytracer::Settings _settings;
         raytracer::World _world;
         std::vector<std::shared_ptr<raytracer::ICamera>> _cameras;
+        std::vector<std::shared_ptr<raytracer::ITexture>> _textures;
+        std::vector<std::shared_ptr<raytracer::IMaterial>> _materials;
 
-        std::vector<std::shared_ptr<DLLoader<raytracer::IObject *(*)(void)>>> _objectBuilder;
-        std::vector<std::shared_ptr<DLLoader<raytracer::IMaterial *(*)(void)>>> _materialBuilder;
-        std::vector<std::shared_ptr<DLLoader<raytracer::ICamera *(*)(void)>>> _cameraBuilder;
-        std::vector<std::shared_ptr<DLLoader<raytracer::ILight *(*)(void)>>> _lightBuilder;
+        std::vector<std::shared_ptr<DLLoader<raytracer::ICamera *(*)(raytracer::Object &)>>> _cameraBuilder;
+        std::vector<std::shared_ptr<DLLoader<raytracer::ILight *(*)(raytracer::Object &)>>> _lightBuilder;
+        std::vector<std::shared_ptr<DLLoader<raytracer::ITexture *(*)(raytracer::Object &)>>> _textureBuilder;
+        std::vector<std::shared_ptr<DLLoader<
+            raytracer::IMaterial *(*)(raytracer::Object &, std::vector<std::shared_ptr<raytracer::ITexture>>)>>> _materialBuilder;
+        std::vector<std::shared_ptr<DLLoader<
+        raytracer::IPrimitive *(*)(raytracer::Object &, std::vector<std::shared_ptr<raytracer::IMaterial>>)>>> _objectBuilder;
+
+        void loadWorld();
+        void loadCameras();
+        void loadCamera(std::string subType);
+        void loadTextures();
+        void loadTexture(std::string subType);
+        void loadMaterials();
+        void loadMaterial(std::string subType);
+        void loadLights();
+        void loadLight(std::string subType);
+        void loadObjects();
+        void loadObject(std::string subType);
 };
 
 #endif //RAYTRACER_SOFTWARE_HPP

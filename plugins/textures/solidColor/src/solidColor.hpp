@@ -8,16 +8,17 @@
 #ifndef SOLIDCOLOR_HPP_
 #define SOLIDCOLOR_HPP_
 
-#include "texture.hpp"
+#include <textures/texture.hpp>
+#include <parser/Object.hpp>
 
 namespace raytracer {
     class SolidColor : public ITexture {
       public:
-        SolidColor() = default;
+        SolidColor() : _color(rtx::color(0, 0, 0)) {}
         SolidColor(const rtx::color &color) : _color(color) {}
         ~SolidColor() = default;
 
-        rtx::color value(float u, float v, const rtx::point3 &p) const override { return _color; }
+        rtx::color value(float u, float v, const rtx::point3 &p) const override;
 
       private:
         rtx::color _color;

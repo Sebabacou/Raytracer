@@ -11,7 +11,6 @@
 #include <materials/material.hpp>
 #include <textures/texture.hpp>
 #include <textures/defaultTexture.hpp>
-#include <textures/solidColor.hpp>
 
 namespace raytracer {
     class DefaultMaterial : public IMaterial {

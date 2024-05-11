@@ -31,7 +31,9 @@ namespace raytracer {
              * @param name The name of the parameter
              * @param value The value of the parameter
              */
-            void addParam(const std::string &name, const std::string &value);
+            void addParam(const std::string &name, const std::string &value) {
+                _params[name] = value;
+            }
 
             /**
              * @brief Get the id of the object
@@ -53,7 +55,16 @@ namespace raytracer {
              *
              * @return The name of the object
              */
-            std::string getName() const;
+            std::string getName() const {
+                std::string _name;
+                auto it = _params.find("name");
+                if (it != _params.end()) {
+                    _name = it->second;
+                } else if (!_params.empty()) {
+                    _name = "undefined_name_object_" + std::to_string(_id);
+                }
+                return _name;
+            }
 
             /**
              * @brief Set a parameter of the object
@@ -77,7 +88,11 @@ namespace raytracer {
              * @details This function will print the parameters of the object in the following format:
              * @details [id]: param1 = value1
              */
-            void printParams();
+            void printParams() {
+                for (auto &param : _params) {
+                    std::cout << "[" << _id << "]: " << param.first << " = " << param.second << std::endl;
+                }
+            }
         private:
 
             /**

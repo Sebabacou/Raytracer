@@ -17,3 +17,15 @@ namespace raytracer {
             return _white;
     }
 }
+
+extern "C" {
+    raytracer::ITexture *factory(raytracer::Object &object)
+    {
+        std::cout << "Creating check texture" << std::endl;
+        return new raytracer::CheckTexture();
+    }
+    std::string getName()
+    {
+        return "CheckTexture";
+    }
+}

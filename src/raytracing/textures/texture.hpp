@@ -13,7 +13,7 @@
 namespace raytracer {
     class ITexture {
         public:
-            virtual ~ITexture() = default;
+            ~ITexture() = default;
             virtual rtx::color value(float u, float v, const rtx::vec3 &p) const = 0;
     };
 }

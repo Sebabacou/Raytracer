@@ -9,10 +9,10 @@
 #define QUADRILATERE_HPP_
 
 #include <rtx.hpp>
-#include <objects/object.hpp>
+#include <primitives/primitive.hpp>
 
 namespace raytracer {
-    class Quadrilatere : public IObject {
+    class Quadrilatere : public IPrimitive {
         public:
             Quadrilatere(rtx::point3 position, rtx::vec3 u, rtx::vec3 v, std::shared_ptr<IMaterial> mat)
                 : _position(position), _u(u), _v(v), _mat(mat) {};

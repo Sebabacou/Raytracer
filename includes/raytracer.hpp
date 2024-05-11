@@ -9,7 +9,7 @@
 #define RAYTRACER_HPP_
 
 #include <iostream>
-#include <objects/object.hpp>
+#include <primitives/primitive.hpp>
 #include <materials/material.hpp>
 #include <cameras/camera.hpp>
 #include <textures/texture.hpp>
