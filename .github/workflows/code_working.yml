@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
       - name: Check compilation
         run: |
-          ./build.sh
+          ./buildme.sh
       - name: Check binary
         run: |
           if [ ! -f ${{ env.BINARIES }} ]; then

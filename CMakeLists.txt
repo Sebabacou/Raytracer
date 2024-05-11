@@ -8,10 +8,47 @@ SET(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra -Werror -g")
 
 # Add the include directory to the include path
 include_directories(src/)
+include_directories(src/parser/)
+include_directories(src/process/)
+include_directories(src/DLLoader/)
+include_directories(includes/)
+include_directories(src/raytracing/)
+
+# Add the directory containing the library
+add_subdirectory(libs/rtx)
+
+# # Add the directory containing the plugin
+add_subdirectory(plugins/lights/pointLight)
+add_subdirectory(plugins/lights/directionalLight)
+add_subdirectory(plugins/lights/ambientLight)
+
+add_subdirectory(plugins/materials/textureMaterial)
+add_subdirectory(plugins/materials/glass)
+add_subdirectory(plugins/materials/metal)
+
+add_subdirectory(plugins/textures/solidColor)
+add_subdirectory(plugins/textures/checkTexture)
+
+add_subdirectory(plugins/cameras/basicCamera)
+
+add_subdirectory(plugins/objects/sphere)
+add_subdirectory(plugins/objects/quadrilatere)
+add_subdirectory(plugins/objects/cone)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
         src/main.cpp
+        src/parser/Parser.cpp
+        src/parser/Settings.cpp
+        src/process/Software.cpp
+        src/process/SoftwareWorld.cpp
+        src/raytracing/world.cpp
+        )
+
+# Link the libraries to the executable
+target_link_libraries(raytracer
+        config++
+        rtxlib
         )
 
 # Copy the executable to the root directory
