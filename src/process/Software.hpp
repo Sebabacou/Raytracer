@@ -25,11 +25,11 @@ class Software {
         /**
          * @brief Constructor of the Software
          *
-         * @details This function will load the settings from the config file "scenes/config.cfg"
+         * @details This function will load the settings from the config file
          */
-        Software() {
+        Software(std::string path) : _parser() {
             try {
-                _parser.parseFile("scenes/config.cfg");
+                _parser.parseFile(path);
                 std::cout << "settings loaded" << std::endl;
                 _settings = _parser.getSettings();
             } catch (const std::exception &e) {
