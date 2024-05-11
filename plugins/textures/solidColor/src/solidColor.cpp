@@ -13,3 +13,15 @@ namespace raytracer {
         return _color;
     }
 }
+
+extern "C" {
+    raytracer::ITexture *factory(raytracer::Object &object)
+    {
+        std::cout << "Creating solid color texture" << std::endl;
+        return new raytracer::SolidColor();
+    }
+    std::string getName()
+    {
+        return "SolidColor";
+    }
+}

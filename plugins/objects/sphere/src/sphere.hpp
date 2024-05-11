@@ -10,6 +10,7 @@
 
 #include <primitives/primitive.hpp>
 #include <materials/defaultMaterial.hpp>
+#include <parser/Object.hpp>
 #include <memory>
 
 namespace raytracer {

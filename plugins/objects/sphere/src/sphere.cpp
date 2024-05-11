@@ -50,8 +50,9 @@ namespace raytracer {
 }
 
 extern "C" {
-    raytracer::IPrimitive *factory()
+    raytracer::IPrimitive *factory(raytracer::Object &, std::vector<std::shared_ptr<raytracer::ITexture>>)
     {
+        std::cout << "Creating sphere" << std::endl;
         return new raytracer::Sphere(rtx::vec3(0, -0.25, -1), 0.5, std::make_shared<raytracer::DefaultMaterial>());
     }
     std::string getName()

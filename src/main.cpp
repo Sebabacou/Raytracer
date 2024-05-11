@@ -22,5 +22,12 @@ int main(int ac, char **av)
         return 0;
     }
     Software software(av[1]);
-    return software.start();
+    try {
+        software.start();
+
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 84;
+    }
+    return 0;
 }

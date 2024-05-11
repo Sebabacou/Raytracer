@@ -165,21 +165,14 @@ namespace raytracer {
         }
         std::cout << std::endl;
     }
-
-    std::ostream &operator<<(std::ostream &os, BasicCamera &c) {
-        os << "Camera(origin: " << c.origin()
-           << ", viewport_origin: " << c.viewportOrigin() << ", pixel_u: "
-           << c.pixelU() << ", pixel_v: " << c.pixelV() << ")";
-        return os;
-    }
 }
 
 extern "C" {
     raytracer::ICamera *factory(raytracer::Object &object)
     {
         std::cout << "Creating BasicCamera" << std::endl;
-        std::cout << object.getParam("position_x") << std::endl;
-        // std::cout << object.getParams("x") << std::endl;
+        // std::cout << object.getParam("position_x") << std::endl;
+        // // std::cout << object.getParams("x") << std::endl;
         return new raytracer::BasicCamera();
     }
     std::string getName()

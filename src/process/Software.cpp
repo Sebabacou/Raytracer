@@ -10,23 +10,13 @@
 
 void Software::loadAllLibs()
 {
-    std::cout << std::endl << "Loading libraries..." << std::endl;
+    std::cout << std::endl;
     loadLibs("plugins/objects", _objectBuilder);
+    loadLibs("plugins/textures", _textureBuilder);
     loadLibs("plugins/materials", _materialBuilder);
     loadLibs("plugins/cameras", _cameraBuilder);
     loadLibs("plugins/lights", _lightBuilder);
-}
-
-void Software::linkLibsToConfig()
-{
-    std::cout << "================ P ================" << std::endl;
-    linkLibToConfig("primitives", _objectBuilder);
-    std::cout << "================ C ================" << std::endl;
-    linkLibToConfig("camera", _cameraBuilder);
-    std::cout << "================ M ================" << std::endl;
-    linkLibToConfig("materials", _materialBuilder);
-    std::cout << "================ L ================" << std::endl;
-    linkLibToConfig("lights", _lightBuilder);
+    std::cout << GREEN << "Libraries loaded" << RESET << std::endl;
 }
 
 template <typename T>
@@ -40,34 +30,7 @@ void Software::loadLibs(const std::string& path, std::vector<std::shared_ptr<DLL
                 std::cout << "Loaded: " << loader->getName() << std::endl;
                 builder.push_back(loader);
             } catch (const std::runtime_error &e) {
-                std::cerr << "Error: " << e.what() << std::endl;
-            }
-        }
-    }
-}
-
-template <typename T>
-void Software::linkLibToConfig(const std::string& type, const std::vector<std::shared_ptr<DLLoader<T>>>& builder)
-{
-    std::vector<std::string> libNames;
-    for (const auto& lib : builder) {
-        libNames.push_back(lib->getName());
-    }
-
-    std::vector<std::string> typeNames;
-    for (const auto &objectPair : _settings.getObjectsByType(type)) {
-        typeNames.push_back(objectPair.first);
-    }
-
-    for (const auto& libName : libNames) {
-        if (std::find(typeNames.begin(), typeNames.end(), libName) != typeNames.end()) {
-            std::cout << type << " " << libName << " have library" << std::endl;
-            std::list<raytracer::Object> objects = _settings.getObjectsBySubType(type, libName);
-            for (const auto& object : objects) {
-                std::cout << type << " ID: " << object.getId() << " | Name: " << object.getName() << std::endl;
-                for (const auto& param : object.getParams()) {
-                    std::cout << "  - " << param.first << ": " << param.second << std::endl;
-                }
+                std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
             }
         }
     }
@@ -77,15 +40,10 @@ int Software::start()
 {
     loadAllLibs();
     loadWorld();
-//    for (auto it = _objectBuilder.begin(); it != _objectBuilder.end(); ++it) {
-//        raytracer::IObject *object = (*it)->getInstance()();
-//        _world.addObject(std::shared_ptr<raytracer::IObject>(object));
-//    }
-//
-//    raytracer::ICamera *camera = _cameras[0].get();
-//    rtx::screen image;
-//    camera->render(_world, image);
-//    image.screenToPPM(std::string("image.ppm"));
-//     raytracer::ICamera *camera = _cameraBuilder[0]->getInstance()();
+
+    raytracer::ICamera *camera = _cameras[0].get();
+    rtx::screen image;
+    camera->render(_world, image);
+    image.screenToPPM(std::string("image.ppm"));
     return 0;
 }

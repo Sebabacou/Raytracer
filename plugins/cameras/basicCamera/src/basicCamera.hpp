@@ -107,8 +107,6 @@ namespace raytracer {
             void reset();
             void setup();
     };
-
-    std::ostream &operator<<(std::ostream &os, BasicCamera &c);
 }
 
 #endif /* !CAMERA_HPP_ */

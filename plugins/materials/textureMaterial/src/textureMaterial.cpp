@@ -20,7 +20,15 @@ namespace raytracer {
     }
 }
 
-extern "C" raytracer::TextureMaterial *create_textureMaterial(std::shared_ptr<raytracer::ITexture> a)
-{
-    return new raytracer::TextureMaterial(a);
+extern "C" {
+    raytracer::IMaterial *factory(raytracer::Object &object, std::vector<std::shared_ptr<raytracer::ITexture>> textures)
+    {
+        std::cout << "Creating texture material" << std::endl;
+        return new raytracer::TextureMaterial();
+    }
+
+    std::string getName()
+    {
+        return "TextureMaterial";
+    }
 }

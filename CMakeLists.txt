@@ -27,6 +27,7 @@ add_subdirectory(plugins/materials/glass)
 add_subdirectory(plugins/materials/metal)
 
 add_subdirectory(plugins/textures/solidColor)
+add_subdirectory(plugins/textures/checkTexture)
 
 add_subdirectory(plugins/cameras/basicCamera)
 
