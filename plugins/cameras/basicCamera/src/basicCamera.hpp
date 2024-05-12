@@ -25,8 +25,8 @@ namespace raytracer {
             BasicCamera() {
                 _pos = rtx::point3(0, 0, -5);
                 _lookAt = rtx::point3(0, 0, 0);
-                _ratio = 16.0f / 9.0f;
                 _width = 800;
+                _ratio = 16.0f / 9.0f;
                 _fov = 90.0f;
                 _antialiasing = false;
                 _antialiasingSamples = 0;
@@ -34,12 +34,12 @@ namespace raytracer {
             }
             BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
                 _pos(pos), _lookAt(lookAt),
-                _ratio(ratio), _width(width), _fov(fov) {
+                _width(width), _ratio(ratio), _fov(fov) {
                 setup();
             }
             BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width) :
                 _pos(pos), _lookAt(lookAt),
-                _ratio(16.0f / 9.0f), _width(width), _fov(90.0f) {
+                _width(width), _ratio(16.0f / 9.0f), _fov(90.0f) {
                 setup();
             }
             BasicCamera(const BasicCamera &c) {
@@ -90,15 +90,15 @@ namespace raytracer {
             rtx::color rayWithAntialiasing(int i, int j, World &world);
             rtx::color rayColor(const rtx::ray &r, World &world, int depth);
             void renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange);
-            float _fov = 90.0f;
-            float _ratio;
+            rtx::point3 _pos;
+            rtx::point3 _lookAt;
             int _width;
+            float _ratio;
+            float _fov = 90.0f;
             int _height;
             float _focalLength;
             float _viewportHeight;
             float _viewportWidth;
-            rtx::point3 _pos;
-            rtx::point3 _lookAt;
 
             rtx::point3 _viewportOrigin;
             rtx::vec3 _viewportU;

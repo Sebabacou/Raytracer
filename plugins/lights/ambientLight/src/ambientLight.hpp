@@ -10,6 +10,7 @@
 
 #include <rtx.hpp>
 #include <lights/light.hpp>
+#include <parser/Object.hpp>
 
 namespace raytracer {
 

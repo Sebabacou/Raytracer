@@ -36,7 +36,10 @@ namespace raytracer {
             }
 
             bool hit(const rtx::ray &r, HitData &data) const;
-            bool directLight(HitData &data, rtx::color &color) const;
+            void clear() {
+                _objects.clear();
+                _lights.clear();
+            }
 
         private:
             std::list<std::shared_ptr<IPrimitive>> _objects;

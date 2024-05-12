@@ -8,7 +8,7 @@
 #include "solidColor.hpp"
 
 namespace raytracer {
-    rtx::color SolidColor::value(float u, float v, const rtx::point3 &p) const
+    rtx::color SolidColor::value(float /* u */, float /* v */, const rtx::point3 &/* p */) const
     {
         return _color;
     }

@@ -8,7 +8,7 @@
 #include "textureMaterial.hpp"
 
 namespace raytracer {
-    bool TextureMaterial::scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const
+    bool TextureMaterial::scatter(const rtx::ray &/* r */, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const
     {
         rtx::vec3 scatterDir = data.normal + rtx::vec3::correctRandom();
 

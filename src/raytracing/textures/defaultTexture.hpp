@@ -16,7 +16,7 @@ namespace raytracer {
         DefaultTexture() {};
         ~DefaultTexture() = default;
 
-        rtx::color value(float u, float v, const rtx::point3 &p) const override {
+        rtx::color value(float /* u */, float /* v */, const rtx::point3 &p) const override {
           auto sines = sin(_size * p.x) * sin(_size * p.y) * sin(_size * p.z);
           if (sines < 0)
               return rtx::color(0, 0, 0);
