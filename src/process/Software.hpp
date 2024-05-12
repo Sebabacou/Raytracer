@@ -18,8 +18,8 @@
 #include <raytracer.hpp>
 #include <Parser.hpp>
 #include <debug.hpp>
-
-using FunctionType = void(*)();
+#include <SFML/Graphics.hpp>
+#include <iostream>
 
 class Software {
     public:
@@ -28,18 +28,24 @@ class Software {
          *
          * @details This function will load the settings from the config file
          */
-        Software(std::string path) : _parser() {
-            try {
-                _parser.parseFile(path);
-                std::cout << GREEN << "Settings loaded" << RESET << std::endl;
-                _settings = _parser.getSettings();
-            } catch (const std::exception &e) {
-                std::cerr << "Error: " << e.what() << std::endl;
-            }
+        Software() : _parser() {
+            _width = 800;
+            _height = 450;
+            _window.create(sf::VideoMode(_width, _height), "Raytracer");
+            if (!_font.loadFromFile("assets/arial.ttf"))
+                throw std::runtime_error("Error while loading the font");
+            _text.setFont(_font);
+            _text.setCharacterSize(18);
+            _text.setFillColor(sf::Color::White);
+            _text.setPosition(5, _height - 25);
         }
-        ~Software() = default;
+        ~Software() {
+            if (_renderThread.joinable())
+                _renderThread.join();
+            _window.close();
+        }
 
-        int start();
+        int start(const std::string path = "");
 
     private:
         /**
@@ -62,6 +68,9 @@ class Software {
 
     private:
         raytracer::Parser _parser;
+        rtx::screen _image;
+        sf::RenderWindow _window;
+        sf::Event _event;
 
         raytracer::Settings _settings;
         raytracer::World _world;
@@ -78,16 +87,28 @@ class Software {
         raytracer::IPrimitive *(*)(raytracer::Object &, std::vector<std::shared_ptr<raytracer::IMaterial>>)>>> _objectBuilder;
 
         void loadWorld();
-        void loadCameras();
         void loadCamera(std::string subType);
-        void loadTextures();
         void loadTexture(std::string subType);
-        void loadMaterials();
         void loadMaterial(std::string subType);
-        void loadLights();
         void loadLight(std::string subType);
-        void loadObjects();
         void loadObject(std::string subType);
+
+        void shell();
+        void display();
+        int update();
+        void handleCommand();
+        int _width;
+        int _height;
+        sf::Texture _texture;
+        sf::Sprite _sprite;
+        sf::Font _font;
+        sf::Text _text;
+        std::string _input = "";
+        bool _validScene = false;
+        int _cam = 0;
+        bool _isRendering = false;
+        std::thread _renderThread;
+        std::mutex _mutex;
 };
 
 #endif //RAYTRACER_SOFTWARE_HPP

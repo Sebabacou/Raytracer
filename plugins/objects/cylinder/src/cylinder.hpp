@@ -1,12 +1,9 @@
 /*
 ** EPITECH PROJECT, 2024
-** raytracing
+** raytracer
 ** File description:
-** sphere
+** cylinder.hpp
 */
-
-#ifndef SPHERE_HPP_
-#define SPHERE_HPP_
 
 #include <primitives/primitive.hpp>
 #include <materials/defaultMaterial.hpp>
@@ -14,14 +11,15 @@
 #include <memory>
 
 namespace raytracer {
-
-    class Sphere : public IPrimitive {
+    class cylinder : public IPrimitive {
         public:
-            Sphere(rtx::vec3 center, float radius, std::shared_ptr<IMaterial> mat) : _position(center), _radius(radius), _mat(mat) {};
-            ~Sphere() {};
+            cylinder(rtx::point3 center, float radius, float height, std::shared_ptr<IMaterial> material)
+                : _position(center), _radius(radius), _height(height), _mat(material) {};
+            ~cylinder() = default;
 
-            rtx::vec3 _position;
+            rtx::point3 _position;
             float _radius;
+            float _height;
             std::shared_ptr<IMaterial> _mat;
 
             bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const override;
@@ -32,5 +30,3 @@ namespace raytracer {
             std::string _name;
     };
 }
-
-#endif /* !SPHERE_HPP_ */

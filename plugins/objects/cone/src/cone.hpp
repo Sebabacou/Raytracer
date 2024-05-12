@@ -1,14 +1,13 @@
 /*
 ** EPITECH PROJECT, 2024
-** Raytracer
+** raytracer
 ** File description:
-** cone
+** cone.hpp
 */
 
-#ifndef CONE_HPP_
-#define CONE_HPP_
-
 #include <primitives/primitive.hpp>
+#include <materials/defaultMaterial.hpp>
+#include <parser/Object.hpp>
 #include <memory>
 
 namespace raytracer {
@@ -24,7 +23,10 @@ namespace raytracer {
             std::shared_ptr<IMaterial> _mat;
 
             bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const override;
+
+            void setName(const std::string &name) override { _name = name; }
+            std::string getName() const override { return _name; }
+        private:
+            std::string _name;
     };
 }
-
-#endif /* !CONE_HPP_ */

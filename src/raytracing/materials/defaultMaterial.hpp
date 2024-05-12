@@ -27,8 +27,13 @@ namespace raytracer {
                 attenuation = _albedo->value(data.u, data.v, data.p);
                 return true;
             }
+
+            void setName(const std::string &name) override { _name = name; }
+            std::string getName() const override { return _name; }
+
         private:
             std::shared_ptr<ITexture> _albedo;
+            std::string _name;
     };
 }
 

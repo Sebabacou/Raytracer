@@ -15,20 +15,18 @@
 #include <memory>
 
 namespace raytracer {
-    class TextureMaterial : public IMaterial {
+    class EmissiveMaterial : public IMaterial {
         public:
-            TextureMaterial() {
-                _albedo = std::make_shared<DefaultTexture>();
-            }
-            TextureMaterial(std::shared_ptr<ITexture> a) : _albedo(a) {}
-            bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const override;
+            EmissiveMaterial(rtx::color c) : _emit(c) {}
+
+            rtx::color emitted(float u, float v, const rtx::point3 &p) const override;
 
             void setName(const std::string &name) override { _name = name; }
             std::string getName() const override { return _name; }
 
         private:
             std::string _name;
-            std::shared_ptr<ITexture> _albedo;
+            rtx::color _emit;
     };
 }
 

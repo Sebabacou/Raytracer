@@ -13,11 +13,21 @@ void Software::loadWorld()
 {
     std::cout << std::endl;
     try {
-        loadCameras();
-        loadTextures();
-        loadLights();
-        loadMaterials();
-        loadObjects();
+        for (const auto &cameraPair : _settings.getObjectsByType("cameras")) {
+            loadCamera(cameraPair.first);
+        }
+        for (const auto &texturePair : _settings.getObjectsByType("textures")) {
+            loadTexture(texturePair.first);
+        }
+        for (const auto &lightPair : _settings.getObjectsByType("lights")) {
+            loadLight(lightPair.first);
+        }
+        for (const auto &materialPair : _settings.getObjectsByType("materials")) {
+            loadMaterial(materialPair.first);
+        }
+        for (const auto &objectPair : _settings.getObjectsByType("primitives")) {
+            loadObject(objectPair.first);
+        }
     } catch (const std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
@@ -43,15 +53,6 @@ void Software::loadCamera(std::string subType)
     }
 }
 
-
-
-void Software::loadCameras()
-{
-    for (const auto &cameraPair : _settings.getObjectsByType("cameras")) {
-        loadCamera(cameraPair.first);
-    }
-}
-
 void Software::loadTexture(std::string subType)
 {
     std::list<raytracer::Object> objects;
@@ -62,19 +63,13 @@ void Software::loadTexture(std::string subType)
             for (auto &object : objects) {
                 try {
                     raytracer::ITexture *texture = builder->getInstance()(object);
+                    texture->setName(object.getName());
                     _textures.push_back(std::shared_ptr<raytracer::ITexture>(texture));
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
                 }
             }
         }
-    }
-}
-
-void Software::loadTextures()
-{
-    for (const auto &texturePair : _settings.getObjectsByType("textures")) {
-        loadTexture(texturePair.first);
     }
 }
 
@@ -88,26 +83,13 @@ void Software::loadLight(std::string subType)
             for (auto &object : objects) {
                 try {
                     std::shared_ptr<raytracer::ILight> light = std::shared_ptr<raytracer::ILight>(builder->getInstance()(object));
+                    light->setName(object.getName());
                     _world.addLight(light);
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
                 }
             }
         }
-    }
-}
-
-void Software::loadLights()
-{
-    for (const auto &lightPair : _settings.getObjectsByType("lights")) {
-        loadLight(lightPair.first);
-    }
-}
-
-void Software::loadMaterials()
-{
-    for (const auto &materialPair : _settings.getObjectsByType("materials")) {
-        loadMaterial(materialPair.first);
     }
 }
 
@@ -121,6 +103,7 @@ void Software::loadMaterial(std::string subType)
             for (auto &object : objects) {
                 try {
                     std::shared_ptr<raytracer::IMaterial> material = std::shared_ptr<raytracer::IMaterial>(builder->getInstance()(object, _textures));
+                    material->setName(object.getName());
                     _materials.push_back(material);
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
@@ -140,18 +123,12 @@ void Software::loadObject(std::string subType)
             for (auto &object : objects) {
                 try {
                     std::shared_ptr<raytracer::IPrimitive> objectPrimitive = std::shared_ptr<raytracer::IPrimitive>(builder->getInstance()(object, _materials));
+                    objectPrimitive->setName(object.getName());
                     _world.addObject(objectPrimitive);
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
                 }
             }
         }
-    }
-}
-
-void Software::loadObjects()
-{
-    for (const auto &objectPair : _settings.getObjectsByType("primitives")) {
-        loadObject(objectPair.first);
     }
 }
