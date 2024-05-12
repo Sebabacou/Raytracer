@@ -8,7 +8,7 @@
 #include "ambientLight.hpp"
 
 namespace raytracer {
-    bool AmbientLight::directLight(World &world, HitData &data, rtx::color &color)
+    bool AmbientLight::directLight(World &/* world */, HitData &/* data */, rtx::color &color)
     {
         color = _color;
         return true;

@@ -24,7 +24,7 @@ namespace raytracer {
 }
 
 extern "C" {
-    raytracer::DirectionalLight *factory(raytracer::Object &object)
+    raytracer::DirectionalLight *factory(raytracer::Object &/* object */)
     {
         std::cout << "Creating DirectionalLight" << std::endl;
         return new raytracer::DirectionalLight();
