@@ -11,6 +11,10 @@
 
 void Software::loadWorld()
 {
+    _world.clear();
+    _cameras.clear();
+    _textures.clear();
+    _materials.clear();
     std::cout << std::endl;
     try {
         for (const auto &cameraPair : _settings.getObjectsByType("cameras")) {

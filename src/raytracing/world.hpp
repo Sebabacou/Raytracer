@@ -36,6 +36,10 @@ namespace raytracer {
             }
 
             bool hit(const rtx::ray &r, HitData &data) const;
+            void clear() {
+                _objects.clear();
+                _lights.clear();
+            }
 
         private:
             std::list<std::shared_ptr<IPrimitive>> _objects;
