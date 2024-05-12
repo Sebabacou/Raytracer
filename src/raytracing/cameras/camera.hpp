@@ -22,10 +22,7 @@ namespace raytracer {
             ICamera() = default;
             ~ICamera() = default;
 
-            virtual void render(World &world, rtx::screen &image) = 0;
-
-            virtual void setPreviewMode(bool previewMode) = 0;
-            virtual bool getPreviewMode() const = 0;
+            virtual void render(World &world, rtx::screen &image, bool preview = false) = 0;
 
             virtual void setName(const std::string &name) = 0;
             virtual std::string getName() const = 0;

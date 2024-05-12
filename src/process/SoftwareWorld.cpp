@@ -13,11 +13,21 @@ void Software::loadWorld()
 {
     std::cout << std::endl;
     try {
-        loadCameras();
-        loadTextures();
-        loadLights();
-        loadMaterials();
-        loadObjects();
+        for (const auto &cameraPair : _settings.getObjectsByType("cameras")) {
+            loadCamera(cameraPair.first);
+        }
+        for (const auto &texturePair : _settings.getObjectsByType("textures")) {
+            loadTexture(texturePair.first);
+        }
+        for (const auto &lightPair : _settings.getObjectsByType("lights")) {
+            loadLight(lightPair.first);
+        }
+        for (const auto &materialPair : _settings.getObjectsByType("materials")) {
+            loadMaterial(materialPair.first);
+        }
+        for (const auto &objectPair : _settings.getObjectsByType("primitives")) {
+            loadObject(objectPair.first);
+        }
     } catch (const std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
@@ -43,15 +53,6 @@ void Software::loadCamera(std::string subType)
     }
 }
 
-
-
-void Software::loadCameras()
-{
-    for (const auto &cameraPair : _settings.getObjectsByType("cameras")) {
-        loadCamera(cameraPair.first);
-    }
-}
-
 void Software::loadTexture(std::string subType)
 {
     std::list<raytracer::Object> objects;
@@ -72,13 +73,6 @@ void Software::loadTexture(std::string subType)
     }
 }
 
-void Software::loadTextures()
-{
-    for (const auto &texturePair : _settings.getObjectsByType("textures")) {
-        loadTexture(texturePair.first);
-    }
-}
-
 void Software::loadLight(std::string subType)
 {
     std::list<raytracer::Object> objects;
@@ -96,20 +90,6 @@ void Software::loadLight(std::string subType)
                 }
             }
         }
-    }
-}
-
-void Software::loadLights()
-{
-    for (const auto &lightPair : _settings.getObjectsByType("lights")) {
-        loadLight(lightPair.first);
-    }
-}
-
-void Software::loadMaterials()
-{
-    for (const auto &materialPair : _settings.getObjectsByType("materials")) {
-        loadMaterial(materialPair.first);
     }
 }
 
@@ -150,12 +130,5 @@ void Software::loadObject(std::string subType)
                 }
             }
         }
-    }
-}
-
-void Software::loadObjects()
-{
-    for (const auto &objectPair : _settings.getObjectsByType("primitives")) {
-        loadObject(objectPair.first);
     }
 }

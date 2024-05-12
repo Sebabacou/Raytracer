@@ -74,7 +74,7 @@ namespace raytracer {
             void setMaxDepth(int depth) { _maxDepth = depth; }
             void setBackground(rtx::color color) { _background = color; }
 
-            void render(World &world, rtx::screen &image) override;
+            void render(World &world, rtx::screen &image, bool preview = false) override;
 
             std::atomic<int> _progress = 0;
             std::mutex _mutex;
@@ -82,8 +82,6 @@ namespace raytracer {
 
             void setName(const std::string &name) override { _name = name; }
             std::string getName() const override { return _name; }
-            void setPreviewMode(bool previewMode) override { _previewMode = previewMode; }
-            bool getPreviewMode() const override { return _previewMode; }
             void setNbThreads(int nbThreads) override { _nbThreads = nbThreads; }
             int getNbThreads() const override { return _nbThreads; }
 
