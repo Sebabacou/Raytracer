@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2024
 ** raytracer
 ** File description:
-** cone.hpp
+** cylinder.hpp
 */
 
 #include <primitives/primitive.hpp>
@@ -11,11 +11,11 @@
 #include <memory>
 
 namespace raytracer {
-    class Cone : public IPrimitive {
+    class cylinder : public IPrimitive {
         public:
-            Cone(rtx::point3 center, float radius, float height, std::shared_ptr<IMaterial> material)
+            cylinder(rtx::point3 center, float radius, float height, std::shared_ptr<IMaterial> material)
                 : _position(center), _radius(radius), _height(height), _mat(material) {};
-            ~Cone() = default;
+            ~cylinder() = default;
 
             rtx::point3 _position;
             float _radius;

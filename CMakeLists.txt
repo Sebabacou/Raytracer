@@ -37,6 +37,8 @@ add_subdirectory(plugins/cameras/basicCamera)
 add_subdirectory(plugins/objects/sphere)
 add_subdirectory(plugins/objects/quadrilatere)
 add_subdirectory(plugins/objects/cone)
+add_subdirectory(plugins/objects/cylinder)
+add_subdirectory(plugins/objects/triangle)
 
 # Add the source files to the executable for this CMakeLists.txt
 add_executable(raytracer
