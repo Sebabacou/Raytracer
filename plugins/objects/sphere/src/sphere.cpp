@@ -35,25 +35,39 @@ namespace raytracer {
         return true;
     }
 
-    std::string Sphere::debugString() const
-    {
-        std::ostringstream os;
-        os << "Sphere(" << _position << ", " << _radius << ")";
-        return os.str();
-    }
-
-    std::ostream &operator<<(std::ostream &os, const Sphere &s)
-    {
-        os << "Sphere(" << s._position << ", " << s._radius << ")";
-        return os;
-    }
 }
 
 extern "C" {
-    raytracer::IPrimitive *factory(raytracer::Object &, std::vector<std::shared_ptr<raytracer::ITexture>>)
+    raytracer::IPrimitive *factory(raytracer::Object &object, std::vector<std::shared_ptr<raytracer::IMaterial>> materials)
     {
         std::cout << "Creating sphere" << std::endl;
-        return new raytracer::Sphere(rtx::vec3(0, -0.25, -1), 0.5, std::make_shared<raytracer::DefaultMaterial>());
+        rtx::vec3 position;
+        float radius = 1;
+        std::shared_ptr<raytracer::IMaterial> mat = std::make_shared<raytracer::DefaultMaterial>();
+
+        try {
+            position = rtx::point3::stov3(object.getParam("position"));
+        } catch (const std::exception &e) {
+            position = rtx::point3(0, 0, 0);
+        }
+        try {
+            radius = std::stof(object.getParam("radius"));
+        } catch (const std::exception &e) {
+            radius = 1;
+        }
+        try {
+            std::string sphereName = object.getParam("material");
+            for (auto &mat_ : materials) {
+                if (mat_->getName() == sphereName) {
+                    mat = mat_;
+                    break;
+                }
+            }
+        } catch (const std::exception &e) {
+            std::cout << "No material found: " << object.getParam("material") << std::endl;
+        }
+
+        return new raytracer::Sphere(position, radius, mat);
     }
     std::string getName()
     {

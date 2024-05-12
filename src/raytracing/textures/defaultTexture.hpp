@@ -24,9 +24,12 @@ namespace raytracer {
               return rtx::color(255, 0, 255);
         }
 
+        void setName(const std::string &name) override { _name = name; }
+            std::string getName() const override { return _name; }
       private:
-        float _size = 2;
+        float _size = 0.5f;
         rtx::color _color;
+        std::string _name;
     };
 }
 

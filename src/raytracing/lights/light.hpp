@@ -20,6 +20,9 @@ namespace raytracer {
             ~ILight() = default;
 
             virtual bool directLight(World &world, HitData &data, rtx::color &color) = 0;
+
+            virtual void setName(const std::string &name) = 0;
+            virtual std::string getName() const = 0;
         protected:
         private:
     };

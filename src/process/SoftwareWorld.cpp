@@ -62,6 +62,7 @@ void Software::loadTexture(std::string subType)
             for (auto &object : objects) {
                 try {
                     raytracer::ITexture *texture = builder->getInstance()(object);
+                    texture->setName(object.getName());
                     _textures.push_back(std::shared_ptr<raytracer::ITexture>(texture));
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
@@ -88,6 +89,7 @@ void Software::loadLight(std::string subType)
             for (auto &object : objects) {
                 try {
                     std::shared_ptr<raytracer::ILight> light = std::shared_ptr<raytracer::ILight>(builder->getInstance()(object));
+                    light->setName(object.getName());
                     _world.addLight(light);
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
@@ -121,6 +123,7 @@ void Software::loadMaterial(std::string subType)
             for (auto &object : objects) {
                 try {
                     std::shared_ptr<raytracer::IMaterial> material = std::shared_ptr<raytracer::IMaterial>(builder->getInstance()(object, _textures));
+                    material->setName(object.getName());
                     _materials.push_back(material);
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
@@ -140,6 +143,7 @@ void Software::loadObject(std::string subType)
             for (auto &object : objects) {
                 try {
                     std::shared_ptr<raytracer::IPrimitive> objectPrimitive = std::shared_ptr<raytracer::IPrimitive>(builder->getInstance()(object, _materials));
+                    objectPrimitive->setName(object.getName());
                     _world.addObject(objectPrimitive);
                 } catch (const std::exception &e) {
                     std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
