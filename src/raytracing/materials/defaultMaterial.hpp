@@ -17,10 +17,10 @@ namespace raytracer {
         public:
             DefaultMaterial() : _albedo(std::make_shared<DefaultTexture>()) {}
 
-            bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const
+            bool scatter(const rtx::ray &/* r */, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const
             {
                 rtx::vec3 scatterDir = data.normal + rtx::vec3::correctRandom();
-                float tolerance = 1e-6;
+
                 if (scatterDir.isZero())
                     scatterDir = data.normal;
                 scattered = rtx::ray(data.p, scatterDir);

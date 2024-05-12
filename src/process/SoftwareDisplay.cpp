@@ -86,6 +86,7 @@ void Software::handleCommand()
         std::cout << GREEN << "Scene loaded" << RESET << std::endl;
         _validScene = true;
         _cam = 0;
+        _cameras[_cam]->render(_world, _image, true);
     }
     if (_input.substr(0, 4) == "save") {
         std::string arg = "renders/image.ppm";
@@ -118,7 +119,7 @@ void Software::handleCommand()
         std::string arg = _input.substr(4);
         if (arg == "next") {
             _cam++;
-            if (_cam >= _cameras.size())
+            if (_cam >= (int)_cameras.size())
                 _cam = 0;
             std::cout << GREEN << "Camera switched to: " << _cameras[_cam]->getName() << RESET << std::endl;
         }

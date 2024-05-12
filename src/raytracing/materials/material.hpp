@@ -18,10 +18,7 @@ namespace raytracer {
             IMaterial() = default;
             ~IMaterial() = default;
 
-            virtual bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const {
-                (void)r;
-                (void)data;
-                (void)attenuation;
+            virtual bool scatter(const rtx::ray &/* r */, HitData &/* data */, rtx::vec3 &/* attenuation */, rtx::ray &/* scattered */) const {
                 return false;
             }
             virtual rtx::color emitted(float u, float v, const rtx::point3& p) const {
