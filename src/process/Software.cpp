@@ -6,7 +6,6 @@
 */
 
 #include "Software.hpp"
-#include <iostream>
 
 void Software::loadAllLibs()
 {
@@ -36,25 +35,21 @@ void Software::loadLibs(const std::string& path, std::vector<std::shared_ptr<DLL
     }
 }
 
-int Software::start(const std::string &path)
+int Software::start(const std::string path)
 {
-    try {
+    loadAllLibs();
+    if (! path.empty()) {
         if (!_parser.parseFile(path))
             throw std::runtime_error("Error while parsing the file");
-        std::cout << GREEN << "Settings loaded" << RESET << std::endl;
         _settings = _parser.getSettings();
-
-        loadAllLibs();
+        std::cout << GREEN << "Settings loaded" << RESET << std::endl;
         loadWorld();
-
-        raytracer::ICamera *camera = _cameras[0].get();
-        rtx::screen image;
-        std::cout << _world << std::endl;
-        camera->render(_world, image);
-        image.screenToPPM(std::string("image.ppm"));
-    } catch (const std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 84;
+        if (_cameras.size() != 0) {
+            _validScene = true;
+            _cam = 0;
+            _cameras[_cam]->render(_world, _image, true);
+        }
     }
+    shell();
     return 0;
 }

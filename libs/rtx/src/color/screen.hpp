@@ -37,6 +37,14 @@ namespace rtx {
                 _height = height;
                 setScreenSize();
             }
+            void clearScreen() {
+                for (int i = 0; i < _height; i++) {
+                    for (int j = 0; j < _width; j++) {
+                        _pixels[i][j] = color(0, 0, 0);
+                    }
+                }
+            }
+
             void setPixel(int x, int y, const pixel &p);
             void screenToPPM(std::string filename);
 

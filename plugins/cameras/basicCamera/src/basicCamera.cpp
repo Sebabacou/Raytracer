@@ -128,8 +128,9 @@ namespace raytracer {
         }
     }
 
-    void BasicCamera::render(World &world, rtx::screen &image)
+    void BasicCamera::render(World &world, rtx::screen &image, bool preview)
     {
+        _previewMode = preview;
         image.setSize(_width, _height);
 
         time_t start = time(0);
@@ -152,6 +153,8 @@ namespace raytracer {
         }
         std::cout << std::endl;
         std::cout << "Render time: " << time(0) - start << "s" << std::endl;
+        _progress = 0;
+        preview = false;
     }
 }
 
