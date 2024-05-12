@@ -120,7 +120,7 @@ namespace raytracer {
             bool _previewMode = false;
             int _nbThreads = std::thread::hardware_concurrency();
             void filter(rtx::screen &image);
-            float _filterScale = 0.5;
+            float _filterScale = 4;
     };
 }
 
