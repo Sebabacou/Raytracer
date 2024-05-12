@@ -2,23 +2,20 @@
 ** EPITECH PROJECT, 2024
 ** raytracer
 ** File description:
-** cone.cpp
+** cylinder.cpp
 */
 
-#include "cone.hpp"
-
-
+#include "cylinder.hpp"
 
 namespace raytracer {
-    bool Cone::hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const
+    bool cylinder::hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const
     {
+
         rtx::vec3 oc = r._origin - _position;
-        float k = _radius / _height;
-        k = k * k;
-        float a = r._direction.x * r._direction.x + r._direction.z * r._direction.z - k * r._direction.y * r._direction.y;
-        float b = 2 * (r._direction.x * oc.x + r._direction.z * oc.z - k * r._direction.y * (oc.y - _height));
-        float c = oc.x * oc.x + oc.z * oc.z - k * (oc.y - _height) * (oc.y - _height);
-        float discriminant = b * b - 4 * a * c;
+        float a = r._direction.x * r._direction.x + r._direction.y * r._direction.y + r._direction.z * r._direction.z - pow(r._direction.y, 2);
+        float b = 2 * (oc.x - _position.x) * r._direction.x+ 2 * (oc.z - _position.z) * r._direction.z;
+        float c = pow(oc.x - _position.x, 2) + pow(oc.z - _position.z, 2) - pow(_radius, 2);
+        float discriminant = pow(b, 2) - 4 * a * c;
 
         if (discriminant < 0)
             return false;
@@ -30,9 +27,6 @@ namespace raytracer {
         }
         data.t = root;
         data.p = r.at(data.t);
-        // Check if the intersection point is within the height of the cone
-        if (data.p.y < _position.y || data.p.y > _position.y + _height)
-            return false;
         data.normal = (data.p - rtx::point3(_position.x, data.p.y, _position.z)) / _radius;
         data.mat = _mat;
         return true;
@@ -42,7 +36,7 @@ namespace raytracer {
 extern "C" {
     raytracer::IPrimitive *factory(raytracer::Object &object, std::vector<std::shared_ptr<raytracer::IMaterial>> materials)
     {
-        std::cout << "Creating cone" << std::endl;
+        std::cout << "Creating cylinder" << std::endl;
         rtx::vec3 position;
         float radius = 1;
         float height = 1;
@@ -75,10 +69,10 @@ extern "C" {
             std::cout << "No material found: " << object.getParam("material") << std::endl;
         }
 
-        return new raytracer::Cone(position, radius, height, mat);
+        return new raytracer::cylinder(position, radius, height, mat);
     }
     std::string getName()
     {
-        return "cone";
+        return "cylinder";
     }
 }
