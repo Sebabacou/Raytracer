@@ -72,6 +72,7 @@ namespace raytracer {
             void setAntialiasing(bool antialiasing) { _antialiasing = antialiasing; }
             void setAntialiasingSamples(int samples) { _antialiasingSamples = samples; }
             void setMaxDepth(int depth) { _maxDepth = depth; }
+            void setBackground(rtx::color color) { _background = color; }
 
             void render(World &world, rtx::screen &image) override;
 
@@ -110,6 +111,8 @@ namespace raytracer {
             bool _antialiasing = false;
             int _antialiasingSamples = 15;
             int _maxDepth = 75;
+
+            rtx::color _background = rtx::color(0.8, 0.8, 1);
 
             void reset();
             void setup();

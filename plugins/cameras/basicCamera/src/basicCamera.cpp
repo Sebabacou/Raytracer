@@ -53,6 +53,7 @@ namespace raytracer {
         HitData data;
         rtx::ray scattered;
         rtx::vec3 attenuation;
+        rtx::vec3 emittion;
         rtx::color color(0, 0, 0);
         rtx::color lightColor;
         rtx::color totalLightColor;
@@ -61,6 +62,7 @@ namespace raytracer {
         if (depth >= _maxDepth)
             return rtx::color(0, 0, 0);
         if (world.hit(r, data) > 0) {
+            emittion = data.mat->emitted(data.u, data.v, data.p);
             if (data.mat->scatter(r, data, attenuation, scattered)) {
                 if (rtx::randomFloat(0, 1) < 0.1) {
                     for (auto &light : world.lights()) {
@@ -72,12 +74,9 @@ namespace raytracer {
                 }
                 color = attenuation * (rayColor(scattered, world, depth + 1));
             }
-            return color;
+            return color + emittion;
         }
-        rtx::vec3 unit_direction = r._direction;
-        float t = 0.5 * (unit_direction.y + 1.0);
-        return (1.0 - t) * rtx::color(1.0, 1.0, 1.0) + t * rtx::color(0.5, 0.7, 1.0);
-        return rtx::color(0, 0, 0);
+        return _background;
     }
 
     rtx::color BasicCamera::rayWithAntialiasing(int i, int j, World &world)
@@ -134,7 +133,7 @@ namespace raytracer {
         image.setSize(_width, _height);
 
         time_t start = time(0);
-        
+
         if (_nbThreads < 1)
             _nbThreads = 1;
         int root = (int)sqrt(_nbThreads);
@@ -185,6 +184,9 @@ extern "C" {
         } catch (const std::exception &e) {}
         try {
             camera->setMaxDepth(std::stoi(object.getParam("maxDepth")));
+        } catch (const std::exception &e) {}
+        try {
+            camera->setBackground(rtx::vec3::stov3(object.getParam("background")));
         } catch (const std::exception &e) {}
 
         return camera;

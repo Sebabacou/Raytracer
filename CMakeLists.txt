@@ -25,6 +25,7 @@ add_subdirectory(plugins/lights/ambientLight)
 add_subdirectory(plugins/materials/textureMaterial)
 add_subdirectory(plugins/materials/glass)
 add_subdirectory(plugins/materials/metal)
+add_subdirectory(plugins/materials/emissiveMaterial)
 
 add_subdirectory(plugins/textures/solidColor)
 add_subdirectory(plugins/textures/checkTexture)
