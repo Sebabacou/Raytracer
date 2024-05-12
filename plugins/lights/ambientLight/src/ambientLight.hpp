@@ -21,8 +21,12 @@ namespace raytracer {
 
             bool directLight(World &world, HitData &data, rtx::color &color) override;
 
+            void setName(const std::string &name) override { _name = name; }
+            std::string getName() const override { return _name; }
+
         private:
             rtx::vec3 _color;
+            std::string _name;
     };
 }
 

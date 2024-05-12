@@ -16,8 +16,13 @@ namespace raytracer {
         public:
             Metal(const rtx::vec3 &a);
             bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const override;
-
+            
             rtx::vec3 albedo;
+    
+            void setName(const std::string &name) override { _name = name; }
+            std::string getName() const override { return _name; }
+        private:
+            std::string _name;
     };
 }
 

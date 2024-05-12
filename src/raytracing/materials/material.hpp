@@ -18,6 +18,9 @@ namespace raytracer {
             IMaterial() = default;
             ~IMaterial() = default;
             virtual bool scatter(const rtx::ray &r, HitData &data, rtx::vec3 &attenuation, rtx::ray &scattered) const = 0;
+
+            virtual void setName(const std::string &name) = 0;
+            virtual std::string getName() const = 0;
     };
 }
 

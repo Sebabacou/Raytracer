@@ -24,6 +24,11 @@ namespace raytracer {
             std::shared_ptr<IMaterial> _mat;
 
             bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const override;
+
+            void setName(const std::string &name) override { _name = name; }
+            std::string getName() const override { return _name; }
+        private:
+            std::string _name;
     };
 }
 

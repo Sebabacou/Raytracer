@@ -20,9 +20,13 @@ namespace raytracer {
 
         rtx::color value(float u, float v, const rtx::point3 &p) const override;
 
+        void setName(const std::string &name) override { _name = name; }
+        std::string getName() const override { return _name; }
+
       private:
         rtx::color _color;
+        std::string _name;
     };
-}    // namespace raytracer
+}
 
 #endif /* !SOLIDCOLOR_HPP_ */

@@ -22,7 +22,26 @@ extern "C" {
     raytracer::ITexture *factory(raytracer::Object &object)
     {
         std::cout << "Creating check texture" << std::endl;
-        return new raytracer::CheckTexture();
+        rtx::color color1;
+        rtx::color color2;
+        float size = 0;
+
+        try {
+            color1 = rtx::vec3::stov3(object.getParam("color1"));
+            color2 = rtx::vec3::stov3(object.getParam("color2"));
+        } catch (const std::exception &e) {
+            color1 = rtx::color(0.2, 0.2, 0.2);
+            color2 = rtx::color(0.2, 0.4, 0.2);
+        }
+        try {
+            size = std::stof(object.getParam("size"));
+        } catch (const std::exception &e) {
+            size = 1;
+        }
+
+
+
+        return new raytracer::CheckTexture(color1, color2, size);
     }
     std::string getName()
     {

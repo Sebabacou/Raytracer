@@ -23,13 +23,13 @@ namespace raytracer {
     class BasicCamera : public ICamera {
         public:
             BasicCamera() {
-                _pos = rtx::point3(0, 0, 0);
-                _lookAt = rtx::point3(0, 0, -1);
+                _pos = rtx::point3(0, 0, -5);
+                _lookAt = rtx::point3(0, 0, 0);
                 _ratio = 16.0f / 9.0f;
                 _width = 800;
                 _fov = 90.0f;
-                _antialiasing = true;
-                _antialiasingSamples = 15;
+                _antialiasing = false;
+                _antialiasingSamples = 0;
                 setup();
             }
             BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
@@ -73,16 +73,23 @@ namespace raytracer {
             void setAntialiasingSamples(int samples) { _antialiasingSamples = samples; }
             void setMaxDepth(int depth) { _maxDepth = depth; }
 
-            rtx::pixel pixelAt(int i, int j, World &world);
-            rtx::color rayWithAntialiasing(int i, int j, World &world);
-            rtx::color rayColor(const rtx::ray &r, World &world, int depth);
             void render(World &world, rtx::screen &image) override;
-            void render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange) override;
 
             std::atomic<int> _progress = 0;
             std::mutex _mutex;
             time_t _start;
+
+            void setName(const std::string &name) override { _name = name; }
+            std::string getName() const override { return _name; }
+            void setPreviewMode(bool previewMode) override { _previewMode = previewMode; }
+            bool getPreviewMode() const override { return _previewMode; }
+            void setNbThreads(int nbThreads) override { _nbThreads = nbThreads; }
+            int getNbThreads() const override { return _nbThreads; }
+
         private:
+            rtx::pixel pixelAt(int i, int j, World &world);
+            rtx::color rayWithAntialiasing(int i, int j, World &world);
+            rtx::color rayColor(const rtx::ray &r, World &world, int depth);
             void renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange);
             float _fov = 90.0f;
             float _ratio;
@@ -106,6 +113,10 @@ namespace raytracer {
 
             void reset();
             void setup();
+
+            std::string _name;
+            bool _previewMode = false;
+            int _nbThreads = std::thread::hardware_concurrency();
     };
 }
 

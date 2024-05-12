@@ -9,8 +9,8 @@
 
 namespace raytracer {
     void BasicCamera::reset() {
-        _pos = rtx::point3(0, 0, 0);
-        _lookAt = rtx::point3(0, 0, -1);
+        _pos = rtx::point3(2, 2, 0);
+        _lookAt = rtx::point3(0, 0, 0);
         setup();
     }
 
@@ -21,6 +21,7 @@ namespace raytracer {
         rtx::vec3 zB;
         float theta, h;
 
+        _nbThreads = std::thread::hardware_concurrency() * 2;
         _height = int(_width / _ratio);
         _height = (_height < 1) ? 1 : _height;
 
@@ -102,7 +103,7 @@ namespace raytracer {
         rtx::point3 pixel;
         rtx::ray r;
 
-        if (_antialiasing)
+        if (_antialiasing && !_previewMode)
             return rayWithAntialiasing(i, j, world);
         pixel = _viewportOrigin + j * _pixelU + i * _pixelV;
         r = rtx::ray(_pos, pixel - _pos);
@@ -133,11 +134,10 @@ namespace raytracer {
         image.setSize(_width, _height);
 
         time_t start = time(0);
-        int numThreads = std::thread::hardware_concurrency() - 2;
-        if (numThreads < 1)
-            numThreads = 1;
-        int root = (int)sqrt(numThreads);
-        root = 8;
+        
+        if (_nbThreads < 1)
+            _nbThreads = 1;
+        int root = (int)sqrt(_nbThreads);
         int xRange = _width / root;
         int yRange = _height / root;
         std::vector<std::thread> threads;
@@ -154,26 +154,40 @@ namespace raytracer {
         std::cout << std::endl;
         std::cout << "Render time: " << time(0) - start << "s" << std::endl;
     }
-
-    void BasicCamera::render(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
-    {
-        image.setSize(_width, _height);
-
-        for (int i = yRange._min; i < yRange._max; i++) {
-            for (int j = xRange._min; j < xRange._max; j++)
-                image[i][j] = pixelAt(i, j, world);
-        }
-        std::cout << std::endl;
-    }
 }
 
 extern "C" {
     raytracer::ICamera *factory(raytracer::Object &object)
     {
         std::cout << "Creating BasicCamera" << std::endl;
-        // std::cout << object.getParam("position_x") << std::endl;
-        // // std::cout << object.getParams("x") << std::endl;
-        return new raytracer::BasicCamera();
+        raytracer::BasicCamera *camera = new raytracer::BasicCamera();
+
+        try {
+            camera->setPos(rtx::point3::stov3(object.getParam("position")));
+        } catch (const std::exception &e) {}
+        try {
+            camera->setLookAt(rtx::point3::stov3(object.getParam("lookAt")));
+        } catch (const std::exception &e) {}
+        try {
+            camera->setWidth(std::stoi(object.getParam("width")));
+        } catch (const std::exception &e) {}
+        try {
+            camera->setRatio(std::stof(object.getParam("ratio")));
+        } catch (const std::exception &e) {}
+        try {
+            camera->setFov(std::stof(object.getParam("fov")));
+        } catch (const std::exception &e) {}
+        try {
+            camera->setAntialiasing(object.getParam("antialiasing") == "true");
+        } catch (const std::exception &e) {}
+        try {
+            camera->setAntialiasingSamples(std::stoi(object.getParam("antialiasingSamples")));
+        } catch (const std::exception &e) {}
+        try {
+            camera->setMaxDepth(std::stoi(object.getParam("maxDepth")));
+        } catch (const std::exception &e) {}
+
+        return camera;
     }
     std::string getName()
     {

@@ -15,6 +15,9 @@ namespace raytracer {
         public:
             ~ITexture() = default;
             virtual rtx::color value(float u, float v, const rtx::vec3 &p) const = 0;
+
+            virtual void setName(const std::string &name) = 0;
+            virtual std::string getName() const = 0;
     };
 }
 

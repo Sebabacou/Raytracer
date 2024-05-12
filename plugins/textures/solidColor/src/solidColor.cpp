@@ -18,7 +18,13 @@ extern "C" {
     raytracer::ITexture *factory(raytracer::Object &object)
     {
         std::cout << "Creating solid color texture" << std::endl;
-        return new raytracer::SolidColor();
+        rtx::color color;
+
+        try {
+            color = rtx::vec3::stov3(object.getParam("color"));
+        } catch (const std::exception &e) {}
+
+        return new raytracer::SolidColor(color);
     }
     std::string getName()
     {

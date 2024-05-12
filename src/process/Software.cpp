@@ -43,6 +43,7 @@ int Software::start()
 
     raytracer::ICamera *camera = _cameras[0].get();
     rtx::screen image;
+    std::cout << _world << std::endl;
     camera->render(_world, image);
     image.screenToPPM(std::string("image.ppm"));
     return 0;

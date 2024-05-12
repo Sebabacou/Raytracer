@@ -18,7 +18,9 @@ namespace raytracer {
             ~IPrimitive() = default;
 
             virtual bool hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const = 0;
-            virtual std::string debugString() const = 0;
+
+            virtual void setName(const std::string &name) = 0;
+            virtual std::string getName() const = 0;
         protected:
         private:
             rtx::vec3 _position;

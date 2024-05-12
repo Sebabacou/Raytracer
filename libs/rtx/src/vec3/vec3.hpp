@@ -107,6 +107,37 @@ namespace rtx {
             }
             vec3 rotateAroundPoint(const vec3 &point, const vec3 &rotation);
 
+            class InvalidVectorString : public std::exception {
+                public:
+                    InvalidVectorString(int arg) : _arg(arg) {};
+                    const char *what() const noexcept override {
+                        return "Invalid vector string";
+                    }
+                    int _arg;
+            };
+
+            static vec3 stov3(std::string str) {
+                std::string delimiter = ",";
+                size_t pos = 0;
+                std::string token;
+                if (str.empty())
+                    throw InvalidVectorString(0);
+                float x, y, z;
+                pos = str.find(delimiter);
+                token = str.substr(0, pos);
+                if (pos == std::string::npos)
+                    throw InvalidVectorString(1);
+                x = std::stof(token);
+                str.erase(0, pos + delimiter.length());
+                pos = str.find(delimiter);
+                token = str.substr(0, pos);
+                if (pos == std::string::npos)
+                    throw InvalidVectorString(2);
+                y = std::stof(token);
+                str.erase(0, pos + delimiter.length());
+                z = std::stof(str);
+                return vec3(x, y, z);
+            }
     };
     using point3 = vec3;
     using color = vec3;
@@ -118,6 +149,7 @@ namespace rtx {
     vec3 operator*(const vec3& v, float x);
     vec3 operator/(const vec3& v, float x);
     std::ostream &operator<<(std::ostream &os, const vec3 &v);
+
 
 }
 
