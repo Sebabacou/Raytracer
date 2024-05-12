@@ -7,7 +7,6 @@
 
 #include "Software.hpp"
 #include <iostream>
-#include <rtx.hpp>
 
 int main(int ac, char **av)
 {
@@ -21,9 +20,9 @@ int main(int ac, char **av)
         std::cout << "  SCENE_FILE: scene configuration" << std::endl;
         return 0;
     }
-    Software software(av[1]);
+    Software software;
     try {
-        software.start();
+        software.start(av[1]);
 
     } catch (const std::exception &e) {
         std::cerr << "Error: " << e.what() << std::endl;
