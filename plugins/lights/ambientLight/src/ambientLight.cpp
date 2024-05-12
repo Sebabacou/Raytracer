@@ -14,3 +14,22 @@ namespace raytracer {
         return true;
     }
 }
+
+extern "C" {
+    raytracer::ILight *factory(raytracer::Object &object)
+    {
+        rtx::vec3 color;
+        std::cout << "Creating AmbientLight" << std::endl;
+
+        try {
+            color = rtx::vec3::stov3(object.getParam("color"));
+        } catch (const std::exception &e) {}
+
+        return new raytracer::AmbientLight(color);
+    }
+
+    std::string getName()
+    {
+        return "AmbientLight";
+    }
+}

@@ -191,6 +191,10 @@ extern "C" {
         try {
             camera->setBackground(rtx::vec3::stov3(object.getParam("background")));
         } catch (const std::exception &e) {}
+        try {
+            camera->rotate(rtx::vec3::stov3(object.getParam("rotation")));
+        } catch (const std::exception &e) {
+        }
 
         return camera;
     }
