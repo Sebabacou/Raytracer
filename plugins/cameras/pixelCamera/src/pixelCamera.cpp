@@ -164,7 +164,7 @@ namespace raytracer {
         rtx::screen newImage = image;
         int x, y;
         rtx::color color;
-        float scale = 4;
+        float scale = _filterScale;
         float width = image.width();
         float height = image.height();
         int nb = 0;
@@ -236,6 +236,10 @@ extern "C" {
         } catch (const std::exception &e) {}
         try {
             camera->rotate(rtx::vec3::stov3(object.getParam("rotation")));
+        } catch (const std::exception &e) {
+        }
+        try {
+            camera->filterScale(std::stof(object.getParam("filterScale")));
         } catch (const std::exception &e) {
         }
 
