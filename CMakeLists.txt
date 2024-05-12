@@ -31,6 +31,7 @@ add_subdirectory(plugins/materials/emissiveMaterial)
 
 add_subdirectory(plugins/textures/solidColor)
 add_subdirectory(plugins/textures/checkTexture)
+add_subdirectory(plugins/textures/imageTexture)
 
 add_subdirectory(plugins/cameras/basicCamera)
 

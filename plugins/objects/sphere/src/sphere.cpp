@@ -9,6 +9,7 @@
 #include <sstream>
 
 
+
 namespace raytracer {
     bool Sphere::hit(const rtx::ray &r, HitData &data, rtx::range rayRange) const
     {
@@ -32,6 +33,12 @@ namespace raytracer {
             data.outside = true;
         }
         data.mat = _mat;
+
+        float theta = acos(-data.p.y);
+        float phi = atan2(-data.p.z, data.p.x) + M_PI;
+        data.u = phi / (2 * M_PI);
+        data.v = theta / M_PI;
+
         return true;
     }
 
