@@ -20,6 +20,9 @@ void Software::display()
         }
         _texture.loadFromImage(image);
         _sprite.setTexture(_texture);
+        float scale = 1;
+        scale = std::min((float)_window.getSize().x / _image.width(), (float)_window.getSize().y / _image.height());
+        _sprite.setScale(scale, scale);
     }
 
     _window.clear();
