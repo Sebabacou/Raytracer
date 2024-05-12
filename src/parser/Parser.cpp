@@ -6,6 +6,7 @@
 */
 
 #include "Parser.hpp"
+#include "debug.hpp"
 
 namespace raytracer {
 
@@ -68,10 +69,10 @@ namespace raytracer {
                 parseSettings(it, it.getName());
             }
         } catch (const libconfig::FileIOException &fioex) {
-            std::cerr << "I/O error while reading file: " << file << std::endl;
+            std::cerr << RED << "I/O error while reading file: " << file << RESET << std::endl;
             return false;
         } catch (const libconfig::ParseException &pex) {
-            std::cerr << "Parse error at " << pex.getFile() << ":" << pex.getLine() << " - " << pex.getError() << std::endl;
+            std::cerr << RED << "Parse error at " << pex.getFile() << ":" << pex.getLine() << " - " << pex.getError() << RESET << std::endl;
             return false;
         }
         return true;

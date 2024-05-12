@@ -36,15 +36,25 @@ void Software::loadLibs(const std::string& path, std::vector<std::shared_ptr<DLL
     }
 }
 
-int Software::start()
+int Software::start(const std::string &path)
 {
-    loadAllLibs();
-    loadWorld();
+    try {
+        if (!_parser.parseFile(path))
+            throw std::runtime_error("Error while parsing the file");
+        std::cout << GREEN << "Settings loaded" << RESET << std::endl;
+        _settings = _parser.getSettings();
 
-    raytracer::ICamera *camera = _cameras[0].get();
-    rtx::screen image;
-    std::cout << _world << std::endl;
-    camera->render(_world, image);
-    image.screenToPPM(std::string("image.ppm"));
+        loadAllLibs();
+        loadWorld();
+
+        raytracer::ICamera *camera = _cameras[0].get();
+        rtx::screen image;
+        std::cout << _world << std::endl;
+        camera->render(_world, image);
+        image.screenToPPM(std::string("image.ppm"));
+    } catch (const std::exception &e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 84;
+    }
     return 0;
 }

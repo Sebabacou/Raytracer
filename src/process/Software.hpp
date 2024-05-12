@@ -28,18 +28,10 @@ class Software {
          *
          * @details This function will load the settings from the config file
          */
-        Software(std::string path) : _parser() {
-            try {
-                _parser.parseFile(path);
-                std::cout << GREEN << "Settings loaded" << RESET << std::endl;
-                _settings = _parser.getSettings();
-            } catch (const std::exception &e) {
-                std::cerr << "Error: " << e.what() << std::endl;
-            }
-        }
+        Software() : _parser() {};
         ~Software() = default;
 
-        int start();
+        int start(const std::string &path);
 
     private:
         /**
