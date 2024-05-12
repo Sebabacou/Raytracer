@@ -30,36 +30,36 @@ This repository contains the source code for the Raytracer project at Epitech, a
 
 ## Mandatory Features
 - **Primitives**:
-    - [ ] Sphere
-    - [ ] Plane
+    - [x] Sphere
+    - [x] Plane
 - **Transformations**:
-    - [ ] Translation
+    - [x] Translation
 - **Light**:
-    - [ ] Directional light
-    - [ ] Ambient light
+    - [x] Directional light
+    - [x] Ambient light
 - **Material**:
-    - [ ] Flat color
+    - [x] Flat color
 - **Scene configuration**:
-    - [ ] Add primitives to scene
-    - [ ] Set up lighting
-    - [ ] Set up camera
+    - [x] Add primitives to scene
+    - [x] Set up lighting
+    - [x] Set up camera
 - **Interface**:
-    - [ ] No GUI, output to a PPM file
+    - [x] No GUI, output to a PPM file
 
 ## Should Features
 Once the previous features are working properly, you should add the following ones:
 - **Primitives**:
-    - [ ] Cylinder
-    - [ ] Cone
+    - [x] Cylinder
+    - [x] Cone
 - **Transformation**:
-    -  [ ] Rotation
+  - [x] Rotation
 - **Light**:
-    - [ ] Drop shadows
+    - [x] Drop shadows
 
 ## Could Features
 - **Primitives**:
-    - [ ] Limited cylinder 
-    - [ ] Limited cone 
+    - [x] Limited cylinder 
+    - [x] Limited cone 
     - [ ] Torus 
     - [ ] Tanglecube 
     - [ ] Triangles 
@@ -67,22 +67,22 @@ Once the previous features are working properly, you should add the following on
     - [ ] Fractals 
     - [ ] Möbius strip 
 - **Transformations**:
-    - [ ] Scale 
+    - [x] Scale 
     - [ ] Shear 
     - [ ] Transformation matrix 
     - [ ] Scene graph 
 - **Light**:
-    - [ ] Multiple directional lights 
+    - [x] Multiple directional lights 
     - [ ] Multiple point lights 
-    - [ ] Colored light 
+    - [x] Colored light 
     - [ ] Phong reflection model 
     - [ ] Ambient occlusion 
 - **Material**:
-    - [ ] Transparency 
-    - [ ] Refraction 
-    - [ ] Reflection 
-    - [ ] Texturing from file 
-    - [ ] Texturing from procedural generation of chessboard 
+    - [x] Transparency 
+    - [x] Refraction 
+    - [x] Reflection 
+    - [x] Texturing from file 
+    - [x] Texturing from procedural generation of chessboard 
     - [ ] Texturing from procedural generation of Perlin noise 
     - [ ] Normal mapping 
 - **Scene configuration**:
@@ -91,13 +91,13 @@ Once the previous features are working properly, you should add the following on
     - [ ] Set up antialiasing through adaptative supersampling 
 - **Optimizations**:
     - [ ] Space partitionning 
-    - [ ] Multithreading 
-    - [ ] Clustering (3)
+    - [x] Multithreading 
+    - [ ] Clustering
 - **Interface**:
-    - [ ] Display the image during and after generation 
-    - [ ] Exit during or after generation 
-    - [ ] Scene preview using a basic and fast renderer 
-    - [ ] Automatic reload of the scene at file change 
+    - [x] Display the image during and after generation 
+    - [x] Exit during or after generation 
+    - [x] Scene preview using a basic and fast renderer 
+    - [x] Automatic reload of the scene at file change 
 
 ## Scene File Format
 Scene file is a simple text file containing the configuration of the scene. It is divided into four sections: camera, primitives, lights, and materials.
