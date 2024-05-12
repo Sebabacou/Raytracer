@@ -8,14 +8,14 @@
 #include "emissiveMaterial.hpp"
 
 namespace raytracer {
-    rtx::color EmissiveMaterial::emitted(float u, float v, const rtx::point3 &p) const
+    rtx::color EmissiveMaterial::emitted(float /* u */, float /* v */, const rtx::point3 &/* p */) const
     {
         return _emit;
     }
 }
 
 extern "C" {
-    raytracer::IMaterial *factory(raytracer::Object &object, std::vector<std::shared_ptr<raytracer::ITexture>> textures)
+    raytracer::IMaterial *factory(raytracer::Object &object, std::vector<std::shared_ptr<raytracer::ITexture>> /* textures */)
     {
         std::cout << "Creating emissive material" << std::endl;
         rtx::vec3 emit;

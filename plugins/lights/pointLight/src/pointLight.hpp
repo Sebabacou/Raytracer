@@ -15,7 +15,8 @@ namespace raytracer {
 
     class PointLight : public ILight {
         public:
-            PointLight(rtx::vec3 position, rtx::vec3 color, float radius = 0.0f)
+            PointLight() : _position(rtx::vec3(0, 0, 0)), _color(rtx::vec3(0, 0, 0)) {};
+            PointLight(rtx::vec3 position, rtx::vec3 color)
                 : _position(position), _color(color) {};
             ~PointLight() = default;
 

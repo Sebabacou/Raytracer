@@ -31,8 +31,10 @@ add_subdirectory(plugins/materials/emissiveMaterial)
 
 add_subdirectory(plugins/textures/solidColor)
 add_subdirectory(plugins/textures/checkTexture)
+add_subdirectory(plugins/textures/imageTexture)
 
 add_subdirectory(plugins/cameras/basicCamera)
+add_subdirectory(plugins/cameras/pixelCamera)
 
 add_subdirectory(plugins/objects/sphere)
 add_subdirectory(plugins/objects/quadrilatere)

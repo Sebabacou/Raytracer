@@ -5,8 +5,8 @@
 ** camera
 */
 
-#ifndef BASICCAMERACAMERA_HPP_
-#define BASICCAMERA_HPP_
+#ifndef PIXELCAMERACAMERA_HPP_
+#define PIXELCAMERA_HPP_
 
 #include <rtx.hpp>
 #include <world.hpp>
@@ -20,9 +20,9 @@
 
 namespace raytracer {
 
-    class BasicCamera : public ICamera {
+    class PixelCamera : public ICamera {
         public:
-            BasicCamera() {
+            PixelCamera() {
                 _pos = rtx::point3(0, 0, -5);
                 _lookAt = rtx::point3(0, 0, 0);
                 _width = 800;
@@ -32,17 +32,17 @@ namespace raytracer {
                 _antialiasingSamples = 0;
                 setup();
             }
-            BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
+            PixelCamera(rtx::point3 pos, rtx::point3 lookAt, int width, float ratio, float fov) :
                 _pos(pos), _lookAt(lookAt),
                 _width(width), _ratio(ratio), _fov(fov) {
                 setup();
             }
-            BasicCamera(rtx::point3 pos, rtx::point3 lookAt, int width) :
+            PixelCamera(rtx::point3 pos, rtx::point3 lookAt, int width) :
                 _pos(pos), _lookAt(lookAt),
                 _width(width), _ratio(16.0f / 9.0f), _fov(90.0f) {
                 setup();
             }
-            BasicCamera(const BasicCamera &c) {
+            PixelCamera(const PixelCamera &c) {
                 _pos = c._pos;
                 _lookAt = c._lookAt;
                 _ratio = c._ratio;
@@ -50,7 +50,7 @@ namespace raytracer {
                 _fov = c._fov;
                 setup();
             }
-            ~BasicCamera() = default;
+            ~PixelCamera() = default;
 
             rtx::point3 origin() { return _pos; }
             rtx::point3 viewportOrigin() { return _viewportOrigin; }
@@ -73,6 +73,7 @@ namespace raytracer {
             void setAntialiasingSamples(int samples) { _antialiasingSamples = samples; }
             void setMaxDepth(int depth) { _maxDepth = depth; }
             void setBackground(rtx::color color) { _background = color; }
+            void filterScale(float scale) { _filterScale = scale; }
 
             void render(World &world, rtx::screen &image, bool preview = false) override;
 
@@ -118,6 +119,8 @@ namespace raytracer {
             std::string _name;
             bool _previewMode = false;
             int _nbThreads = std::thread::hardware_concurrency();
+            void filter(rtx::screen &image);
+            float _filterScale = 4;
     };
 }
 

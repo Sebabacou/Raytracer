@@ -5,16 +5,16 @@
 ** camera
 */
 
-#include "basicCamera.hpp"
+#include "pixelCamera.hpp"
 
 namespace raytracer {
-    void BasicCamera::reset() {
+    void PixelCamera::reset() {
         _pos = rtx::point3(2, 2, 0);
         _lookAt = rtx::point3(0, 0, 0);
         setup();
     }
 
-    void BasicCamera::setup() {
+    void PixelCamera::setup() {
         rtx::point3 _viewportRealOrigin;
         rtx::vec3 xB;
         rtx::vec3 yB;
@@ -48,7 +48,7 @@ namespace raytracer {
             + _pixelU / 2 + _pixelV / 2;
     }
 
-    rtx::color BasicCamera::rayColor(const rtx::ray &r, World &world, int depth)
+    rtx::color PixelCamera::rayColor(const rtx::ray &r, World &world, int depth)
     {
         HitData data;
         rtx::ray scattered;
@@ -79,7 +79,7 @@ namespace raytracer {
         return _background;
     }
 
-    rtx::color BasicCamera::rayWithAntialiasing(int i, int j, World &world)
+    rtx::color PixelCamera::rayWithAntialiasing(int i, int j, World &world)
     {
         rtx::color color(0, 0, 0);
         rtx::point3 pixel;
@@ -97,7 +97,7 @@ namespace raytracer {
         return color / _antialiasingSamples;
     }
 
-    rtx::pixel BasicCamera::pixelAt(int i, int j, World &world)
+    rtx::pixel PixelCamera::pixelAt(int i, int j, World &world)
     {
         rtx::point3 pixel;
         rtx::ray r;
@@ -110,7 +110,7 @@ namespace raytracer {
 
     }
 
-    void BasicCamera::renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
+    void PixelCamera::renderThread(World &world, rtx::screen &image, rtx::range xRange, rtx::range yRange)
     {
         for (int i = yRange._min; i < yRange._max; i++) {
             for (int j = xRange._min; j < xRange._max; j++) {
@@ -128,7 +128,7 @@ namespace raytracer {
         }
     }
 
-    void BasicCamera::render(World &world, rtx::screen &image, bool preview)
+    void PixelCamera::render(World &world, rtx::screen &image, bool preview)
     {
         _previewMode = preview;
         image.setSize(_width, _height);
@@ -145,7 +145,7 @@ namespace raytracer {
             for (int j = 0; j < root; j++) {
                 rtx::range xR(j * xRange, (j + 1) * xRange);
                 rtx::range yR(i * yRange, (i + 1) * yRange);
-                threads.push_back(std::thread(&BasicCamera::renderThread, this, std::ref(world), std::ref(image), xR, yR));
+                threads.push_back(std::thread(&PixelCamera::renderThread, this, std::ref(world), std::ref(image), xR, yR));
             }
         }
         for (int i = 0; i < (int)threads.size(); i++) {
@@ -155,14 +155,57 @@ namespace raytracer {
         std::cout << "Render time: " << time(0) - start << "s" << std::endl;
         _progress = 0;
         preview = false;
+        if (_filterScale > 0)
+            filter(image);
     }
+
+    void PixelCamera::filter(rtx::screen &image)
+    {
+        rtx::screen newImage = image;
+        int x, y;
+        rtx::color color;
+        float scale = _filterScale;
+        float width = image.width();
+        float height = image.height();
+        int nb = 0;
+
+        for (int i = 0; i < width / scale; i++) {
+            for (int j = 0; j < height / scale; j++) {
+                color = rtx::color(0, 0, 0);
+                nb = 0;
+                for (int k = 0; k < scale; k++) {
+                    for (int l = 0; l < scale; l++) {
+                        x = i * scale + k;
+                        y = j * scale + l;
+                        if (x >= width || y >= height)
+                            continue;
+                        nb++;
+                        color += rtx::color(image[y][x].r, image[y][x].g, image[y][x].b);
+                    }
+                }
+                color /= nb;
+                color /= 255.999f;
+                for (int k = 0; k < scale; k++) {
+                    for (int l = 0; l < scale; l++) {
+                        x = i * scale + k;
+                        y = j * scale + l;
+                        if (x >= width || y >= height)
+                            continue;
+                        newImage[y][x] = rtx::pixel(color);
+                    }
+                }
+            }
+        }
+        image = newImage;
+    }
+
 }
 
 extern "C" {
     raytracer::ICamera *factory(raytracer::Object &object)
     {
         std::cout << "Creating BasicCamera" << std::endl;
-        raytracer::BasicCamera *camera = new raytracer::BasicCamera();
+        raytracer::PixelCamera *camera = new raytracer::PixelCamera();
 
         try {
             camera->setPos(rtx::point3::stov3(object.getParam("position")));
@@ -195,11 +238,15 @@ extern "C" {
             camera->rotate(rtx::vec3::stov3(object.getParam("rotation")));
         } catch (const std::exception &e) {
         }
+        try {
+            camera->filterScale(std::stof(object.getParam("filterScale")));
+        } catch (const std::exception &e) {
+        }
 
         return camera;
     }
     std::string getName()
     {
-        return "BasicCamera";
+        return "PixelCamera";
     }
 }

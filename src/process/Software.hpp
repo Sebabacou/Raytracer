@@ -29,8 +29,8 @@ class Software {
          * @details This function will load the settings from the config file
          */
         Software() : _parser() {
-            _width = 800;
-            _height = 450;
+            _width = 1200;
+            _height = 675;
             _window.create(sf::VideoMode(_width, _height), "Raytracer");
             if (!_font.loadFromFile("assets/arial.ttf"))
                 throw std::runtime_error("Error while loading the font");

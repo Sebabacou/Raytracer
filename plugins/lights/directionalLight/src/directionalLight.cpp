@@ -26,12 +26,21 @@ namespace raytracer {
 extern "C" {
     raytracer::DirectionalLight *factory(raytracer::Object &object)
     {
+        rtx::vec3 direction;
+        rtx::color color;
+
         std::cout << "Creating DirectionalLight" << std::endl;
-        return new raytracer::DirectionalLight();
+        try {
+            direction = rtx::vec3::stov3(object.getParam("direction"));
+        } catch (const std::exception &e) {}
+        try {
+            color = rtx::vec3::stov3(object.getParam("color"));
+        } catch (const std::exception &e) {}
+        return new raytracer::DirectionalLight(direction, color);
     }
 
     std::string getName()
     {
-        return "DirectionalLights";
+        return "DirectionalLight";
     }
 }
