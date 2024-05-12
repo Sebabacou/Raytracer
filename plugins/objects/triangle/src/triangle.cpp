@@ -54,10 +54,7 @@ extern "C" {
             p1 = rtx::point3::stov3(object.getParam("p1"));
             p2 = rtx::point3::stov3(object.getParam("p2"));
             p3 = rtx::point3::stov3(object.getParam("p3"));
-        } catch (const std::exception &e) {
-            std::cout << "Invalid triangle points" << std::endl;
-            return nullptr;
-        }
+        } catch (const std::exception &e) {}
         try {
             std::string triangleName = object.getParam("material");
             for (auto &mat_ : materials) {

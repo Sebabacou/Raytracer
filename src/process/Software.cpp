@@ -49,6 +49,7 @@ int Software::start(const std::string path)
             _cam = 0;
             _cameras[_cam]->render(_world, _image, true);
         }
+        std::cout << _world << std::endl;
     }
     shell();
     return 0;

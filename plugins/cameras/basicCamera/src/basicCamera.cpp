@@ -63,15 +63,15 @@ namespace raytracer {
             return rtx::color(0, 0, 0);
         if (world.hit(r, data) > 0) {
             emittion = data.mat->emitted(data.u, data.v, data.p);
-            if (data.mat->scatter(r, data, attenuation, scattered)) {
-                if (rtx::randomFloat(0, 1) < 0.1) {
-                    for (auto &light : world.lights()) {
-                        if (light->directLight(world, data, lightColor)) {
-                            totalLightColor += lightColor;
-                        }
+            if (rtx::randomFloat(0, 1) < 0.1) {
+                for (auto &light : world.lights()) {
+                    if (light->directLight(world, data, lightColor)) {
+                        totalLightColor += lightColor;
                     }
-                    return totalLightColor * attenuation;
                 }
+                return totalLightColor;
+            }
+            if (data.mat->scatter(r, data, attenuation, scattered)) {
                 color = attenuation * (rayColor(scattered, world, depth + 1));
             }
             return color + emittion;
