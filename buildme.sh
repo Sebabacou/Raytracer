@@ -1,5 +1,12 @@
 BINARY_NAME="raytracer"
 
+if [ "$1" = "install" ]; then
+  sudo apt-get install -y libconfig++-dev
+  sudo apt-get install -y libsfml-dev
+  sudo apt-get install -y cmake
+  exit 0
+fi
+
 if [ "$1" = "--help" ] ||  [ "$1" = "-h" ]; then
   echo "Usage: ./build.sh [debug|ninja] [re]"
   echo "ninja | n: build using ninja"
