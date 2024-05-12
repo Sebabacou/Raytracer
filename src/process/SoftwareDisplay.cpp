@@ -112,6 +112,14 @@ void Software::handleCommand()
         return;
     }
 
+    if (_input.substr(0, 6) == "thread") {
+        std::string arg = _input.substr(7);
+        int nbThreads = std::stoi(arg);
+        if (_validScene == false)
+            throw std::runtime_error("No scene loaded");
+        _cameras[_cam]->setNbThreads(nbThreads);
+        std::cout << GREEN << "Threads set to: " << nbThreads << RESET << std::endl;
+    }
 
     if (_input.substr(0, 3) == "cam") {
         if (_validScene == false)
